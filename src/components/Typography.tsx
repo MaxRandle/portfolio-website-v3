@@ -1,14 +1,14 @@
 import { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
-export interface IHeadingProps extends React.HTMLAttributes<HTMLParagraphElement | HTMLSpanElement> {
+export interface ITypographyProps extends React.HTMLAttributes<HTMLParagraphElement | HTMLSpanElement> {
   variant?: "subheading" | "body" | "label" | "caption";
   color?: "primary" | "faded" | "rainbow" | "rainbow-reverse";
   children?: ReactNode;
   as?: "p" | "span";
 }
 
-const StyledTypography = styled.p<IHeadingProps>`
+const StyledTypography = styled.p<ITypographyProps>`
   --typography-size: var(--typography-body-size);
   --typography-color: var(--body-color);
 
@@ -59,6 +59,6 @@ const StyledTypography = styled.p<IHeadingProps>`
       : ""}
 `;
 
-export const Typography: React.FC<IHeadingProps> = ({ children, ...props }) => {
+export const Typography: React.FC<ITypographyProps> = ({ children, ...props }) => {
   return <StyledTypography {...props}>{children}</StyledTypography>;
 };
