@@ -1,0 +1,10 @@
+{
+  "semi": true,
+  "singleQuote": false,
+  "printWidth": 150,
+  "trailingComma": "all",
+  "importOrder": ["^@/components/(.*)$", "^@/config/(.*)$", "^@/content/(.*)$", "^@/helpers/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "singleAttributePerLine": true
+}
