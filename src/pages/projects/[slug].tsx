@@ -1,6 +1,6 @@
-import { getProjectSlugs } from "@/helpers/files";
+import { getProjectFromSlug, getProjectSlugs } from "@/helpers/files";
 import { PageLayout } from "@/layouts/PageLayout";
-import { GetStaticPaths, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 const Project: NextPage = () => {
   return <PageLayout>yoyo</PageLayout>;
@@ -17,4 +17,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = ({ params }) => {};
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params as { slug: string };
+  const project = getProjectFromSlug(slug);
+
+  return { props: { project } };
+};

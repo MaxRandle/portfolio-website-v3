@@ -11,15 +11,15 @@ interface IBoxProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const StyledBox = styled.div<IBoxProps>`
   --box-bg-color: transparent;
-  --box-border-radius: 1rem;
-  --box-padding: 1.5rem;
+  --box-border-radius: 16px;
+  --box-padding: 24px;
 
   border-radius: var(--box-border-radius);
   background-image: var(--box-bg-image);
   padding: var(--box-padding);
 
   @media ${MEDIA_BREAKPOINTS.md} {
-    --box-padding: 2.5rem;
+    --box-padding: 40px;
   }
 
   ${({ texture }) =>
@@ -65,10 +65,10 @@ const StyledBox = styled.div<IBoxProps>`
   ${({ isResponsive }) =>
     isResponsive
       ? css`
-          --box-border-radius: 0rem;
+          --box-border-radius: 0px;
 
           @media ${MEDIA_BREAKPOINTS.md} {
-            --box-border-radius: 1rem;
+            --box-border-radius: 16px;
           }
         `
       : ""}
@@ -76,10 +76,10 @@ const StyledBox = styled.div<IBoxProps>`
   ${({ color, texture }) =>
     !color && !texture
       ? css`
-          --box-padding: 1.5rem;
+          --box-padding: 0px 24px;
 
           @media ${MEDIA_BREAKPOINTS.md} {
-            --box-padding: 0rem;
+            --box-padding: 0px;
           }
         `
       : ""}
