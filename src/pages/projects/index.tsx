@@ -10,7 +10,7 @@ import { getAllProjectMetas, ProjectMeta } from "@/helpers/files";
 import { Typography } from "@/components/Typography";
 import { Box } from "@/components/Box";
 import { Figure } from "@/components/Figure";
-import { Card, CardContent, CardHeading, CardMedia } from "@/layouts/Card";
+import { Card, CardContent, CardMedia } from "@/layouts/Card";
 
 const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
   const { projectMetas } = props;
@@ -28,14 +28,12 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
             >
               Back to homepage
             </Button>
-          </Box>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="container">
-          <Box>
-            <Heading level={2}>{projectsPageContent.hero.heading}</Heading>
+            <Heading
+              className="mt-2"
+              level={2}
+            >
+              {projectsPageContent.hero.heading}
+            </Heading>
           </Box>
         </div>
       </Section>
@@ -55,8 +53,8 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
                   src="/media/seal1.png"
                 />
               </CardMedia>
-              <CardHeading>{meta.title}</CardHeading>
               <CardContent className="space-y-4">
+                <Heading level={4}>{meta.title}</Heading>
                 <Typography>{meta.summary}</Typography>
                 <Typography
                   variant="caption"

@@ -211,6 +211,12 @@
   /* box */
   --box-bg-primary: var(--primary-400);
   --box-bg-secondary: var(--secondary-400);
+
+  /* card */
+  --card-bg: var(--base-300);
+
+  /* link */
+  --link-color: var(--primary-700);
 }
 
 /* @media (prefers-color-scheme: dark) { */
@@ -232,8 +238,15 @@
 
   /* card */
   --card-bg: var(--base-800);
+
+  /* link */
+  --link-color: var(--primary-300);
 }
 /* } */
+
+a {
+  color: var(--link-color);
+}
 
 html,
 body {

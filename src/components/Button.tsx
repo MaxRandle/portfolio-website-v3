@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   children?: ReactNode;
@@ -10,7 +10,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAncho
   IconLeft?: React.FC;
 }
 
-const StyledButton = styled.button<Pick<ButtonProps, "palette">>`
+const StyledButton = styled.button<Pick<ButtonProps, "palette" | "variant">>`
   appearance: none;
   text-decoration: none;
   box-sizing: border-box;
@@ -19,20 +19,12 @@ const StyledButton = styled.button<Pick<ButtonProps, "palette">>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-weight: var(--typography-button-weight);
 
   letter-spacing: var(--typography-button-spacing);
 
   & > * + * {
     margin-left: 16px;
   }
-
-  ${({ palette }) =>
-    palette === "primary"
-      ? css`
-          color: var(--primary-500);
-        `
-      : ""}
 `;
 
 export const Button: React.FC<ButtonProps> = ({ children, variant, href, IconLeft, IconRight, ...props }) => {

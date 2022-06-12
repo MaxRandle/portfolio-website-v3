@@ -12,6 +12,7 @@ import { Box } from "@/components/Box";
 import { Button } from "@/components/Button";
 import { ROUTES } from "@/config/ROUTES";
 import { FiArrowLeft } from "react-icons/fi";
+import { Heading } from "@/components/Heading";
 
 interface IPageProps {
   project: {
@@ -38,9 +39,16 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
               >
                 Back to projects
               </Button>
+              <Heading
+                className="mt-2"
+                level={2}
+              >
+                {project.meta.title}
+              </Heading>
             </Box>
           </div>
         </Section>
+
         <Section>
           <div className="container">
             <Box>

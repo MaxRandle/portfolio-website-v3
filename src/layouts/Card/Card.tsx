@@ -1,7 +1,7 @@
 import { MEDIA_BREAKPOINTS } from "@/config/media-queries";
 import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { CardMedia, CardContent, CardHeading } from "./index";
+import { CardMedia, CardContent } from "./index";
 
 interface IBoxProps extends React.HTMLAttributes<HTMLDivElement | HTMLAnchorElement> {
   children?: ReactNode;
@@ -16,6 +16,8 @@ const StyledCard = styled.div<IBoxProps>`
   border-radius: var(--card-border-radius);
   background: var(--card-bg);
   border: 1px solid var(--border-color);
+  color: var(--body-color);
+
   transition: 0.3s;
   box-sizing: border-box;
   overflow: hidden;
@@ -58,11 +60,8 @@ const StyledContentContainer = styled.div`
 
 export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
   let hasMedia = false;
-  let hasHeading = false;
-  let hasContent = false;
 
   let CardMediaComponent: ReactNode;
-  let CardHeadingComponent: ReactNode;
   let CardContentComponent: ReactNode;
 
   React.Children.map(children, (child) => {
@@ -71,13 +70,8 @@ export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
         CardMediaComponent = child;
         hasMedia = true;
       }
-      if (child.type === CardHeading) {
-        CardHeadingComponent = child;
-        hasHeading = true;
-      }
       if (child.type === CardContent) {
         CardContentComponent = child;
-        hasContent = true;
       }
 
       return React.cloneElement(child, {});
@@ -93,7 +87,7 @@ export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
       {...props}
     >
       {hasMedia ? CardMediaComponent : null}
-      <StyledContentContainer>{[CardHeadingComponent, CardContentComponent]}</StyledContentContainer>
+      <StyledContentContainer>{CardContentComponent}</StyledContentContainer>
     </StyledCard>
   );
 };

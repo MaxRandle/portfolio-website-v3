@@ -6,6 +6,7 @@ export interface ISectionProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   palette?: "primary" | "secondary";
   texture?: "lg1" | "lg2" | "lg3" | "lg4";
+  size?: "sm" | "lg";
 }
 
 const StyledSection = styled.div<ISectionProps>`
@@ -25,9 +26,14 @@ const StyledSection = styled.div<ISectionProps>`
 
   width: 100%;
 
-  @media ${MEDIA_BREAKPOINTS.lg} {
-    --section-margin-bottom: calc(2 * var(--section-spacing));
-  }
+  ${({ size }) =>
+    size === "lg"
+      ? css`
+          @media ${MEDIA_BREAKPOINTS.lg} {
+            --section-margin-bottom: calc(2 * var(--section-spacing));
+          }
+        `
+      : ""}
 
   ${({ palette }) =>
     palette
@@ -76,6 +82,13 @@ const StyledSection = styled.div<ISectionProps>`
       : ""}
 `;
 
-export const Section: React.FC<ISectionProps> = ({ children, ...props }) => {
-  return <StyledSection {...props}>{children}</StyledSection>;
+export const Section: React.FC<ISectionProps> = ({ size = "lg", children, ...props }) => {
+  return (
+    <StyledSection
+      size={size}
+      {...props}
+    >
+      {children}
+    </StyledSection>
+  );
 };
