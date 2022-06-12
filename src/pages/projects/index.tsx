@@ -30,7 +30,7 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
             </Button>
             <Heading
               className="mt-2"
-              level={2}
+              level={1}
             >
               {projectsPageContent.hero.heading}
             </Heading>
@@ -39,7 +39,7 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
       </Section>
 
       <Section>
-        <div className="container grid gap-4 grid-cols-1 lg:grid-cols-2">
+        <div className="container flex flex-col space-y-8">
           {projectMetas.map((meta) => (
             <Card
               isResponsive

@@ -41,7 +41,7 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
               </Button>
               <Heading
                 className="mt-2"
-                level={2}
+                level={1}
               >
                 {project.meta.title}
               </Heading>

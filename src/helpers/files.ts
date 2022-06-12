@@ -23,6 +23,7 @@ export const getProjectSlugs = (): string[] => {
 export interface ProjectMeta {
   slug: string;
   title: string;
+  year: string;
   summary: string;
   repo: string;
   tags: string[];
@@ -46,6 +47,7 @@ export const getProjectFromSlug = (slug: string): Project => {
     meta: {
       slug,
       title: data.title ?? slug,
+      year: data.year ?? null,
       repo: data.repo ?? null,
       summary: data.summary ?? null,
       tags: data.tags ?? [],
