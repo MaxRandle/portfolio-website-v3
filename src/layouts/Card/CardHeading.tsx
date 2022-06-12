@@ -6,9 +6,7 @@ interface ICardHeadingProps extends IHeadingProps {
   children?: ReactNode;
 }
 
-const StyledCardHeading = styled(Heading)<ICardHeadingProps>`
-  grid-area: heading;
-`;
+const StyledCardHeading = styled(Heading)<ICardHeadingProps>``;
 
 export const CardHeading: React.FC<ICardHeadingProps> = ({ children, ...props }) => {
   return (

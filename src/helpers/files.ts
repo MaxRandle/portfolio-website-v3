@@ -25,6 +25,7 @@ export interface ProjectMeta {
   title: string;
   summary: string;
   repo: string;
+  tags: string[];
 }
 
 export interface Project {
@@ -47,6 +48,7 @@ export const getProjectFromSlug = (slug: string): Project => {
       title: data.title ?? slug,
       repo: data.repo ?? null,
       summary: data.summary ?? null,
+      tags: data.tags ?? [],
     },
   };
 };

@@ -7,9 +7,6 @@ interface IBoxProps extends React.HTMLAttributes<HTMLDivElement | HTMLAnchorElem
   children?: ReactNode;
   isResponsive?: boolean;
   href?: string;
-  hasMedia?: boolean;
-  hasHeading?: boolean;
-  hasContent?: boolean;
 }
 
 const StyledCard = styled.div<IBoxProps>`
@@ -22,26 +19,7 @@ const StyledCard = styled.div<IBoxProps>`
   transition: 0.3s;
   box-sizing: border-box;
   overflow: hidden;
-
-  ${({ hasMedia }) =>
-    hasMedia
-      ? css`
-          display: grid;
-          grid-gap: var(--card-padding);
-          grid-template-areas: "media content";
-        `
-      : ""}
-
-  ${({ hasHeading, hasMedia }) =>
-    hasHeading && hasMedia
-      ? css`
-          grid-template-areas:
-            "media none1 none1"
-            "media heading none2"
-            "media content none2"
-            "media none3 none3";
-        `
-      : ""}
+  display: flex;
 
   ${({ isResponsive }) =>
     isResponsive
@@ -65,16 +43,42 @@ const StyledCard = styled.div<IBoxProps>`
       : ""}
 `;
 
+const StyledContentContainer = styled.div`
+  padding: var(--card-padding);
+
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & > * + * {
+    margin-top: var(--card-padding);
+  }
+`;
+
 export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
   let hasMedia = false;
-  let hasContent = false;
   let hasHeading = false;
+  let hasContent = false;
 
-  const childrenWithProps = React.Children.map(children, (child) => {
+  let CardMediaComponent: ReactNode;
+  let CardHeadingComponent: ReactNode;
+  let CardContentComponent: ReactNode;
+
+  React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      if (child.type === CardMedia) hasMedia = true;
-      if (child.type === CardContent) hasContent = true;
-      if (child.type === CardHeading) hasHeading = true;
+      if (child.type === CardMedia) {
+        CardMediaComponent = child;
+        hasMedia = true;
+      }
+      if (child.type === CardHeading) {
+        CardHeadingComponent = child;
+        hasHeading = true;
+      }
+      if (child.type === CardContent) {
+        CardContentComponent = child;
+        hasContent = true;
+      }
 
       return React.cloneElement(child, {});
     } else {
@@ -87,11 +91,9 @@ export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
       as={href ? "a" : "div"}
       href={href}
       {...props}
-      hasMedia={hasMedia}
-      hasHeading={hasHeading}
-      hasContent={hasContent}
     >
-      {childrenWithProps}
+      {hasMedia ? CardMediaComponent : null}
+      <StyledContentContainer>{[CardHeadingComponent, CardContentComponent]}</StyledContentContainer>
     </StyledCard>
   );
 };

@@ -48,7 +48,7 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
               key={meta.slug}
               href={`/projects/${meta.slug}`}
             >
-              <CardMedia className="w-40 h-40">
+              <CardMedia className="w-24 sm:w-40 h-24 sm:h-40">
                 <Figure
                   className="bg-purple-200"
                   alt="seal"
@@ -56,8 +56,15 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
                 />
               </CardMedia>
               <CardHeading>{meta.title}</CardHeading>
-              <CardContent>
+              <CardContent className="space-y-4">
                 <Typography>{meta.summary}</Typography>
+                <Typography
+                  variant="caption"
+                  color="faded"
+                  style={{ textTransform: "uppercase" }}
+                >
+                  {meta.tags.join(" | ")}
+                </Typography>
               </CardContent>
             </Card>
           ))}

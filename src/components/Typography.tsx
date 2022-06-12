@@ -42,7 +42,7 @@ const StyledTypography = styled.p<ITypographyProps>`
         `
       : color === "faded"
       ? css`
-          --typography-color: var(--base-600);
+          --typography-color: var(--base-400);
         `
       : color === "rainbow"
       ? css`

@@ -5,9 +5,7 @@ interface ICardContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
 }
 
-const StyledCardContent = styled.div<ICardContentProps>`
-  grid-area: content;
-`;
+const StyledCardContent = styled.div<ICardContentProps>``;
 
 export const CardContent: React.FC<ICardContentProps> = ({ children, ...props }) => {
   return <StyledCardContent {...props}>{children}</StyledCardContent>;
