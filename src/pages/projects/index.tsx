@@ -60,26 +60,6 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
                 <Typography>{meta.summary}</Typography>
               </CardContent>
             </Card>
-            // <Card
-            //   isResponsive
-            //   key={meta.slug}
-            //   className="flex space-x-4"
-            //   href={`/projects/${meta.slug}`}
-            // >
-
-            //   <div className="shrink-0 w-40 h-40">
-            //     <Figure
-            //       className="bg-purple-200"
-            //       alt="seal"
-            //       src="/media/seal1.png"
-            //       radius="sm"
-            //     />
-            //   </div>
-            //   <div className="flex flex-col justify-center">
-            //     <Heading level={4}>{meta.title}</Heading>
-            //     <Typography className="mt-4">{meta.summary}</Typography>
-            //   </div>
-            // </Card>
           ))}
         </div>
       </Section>

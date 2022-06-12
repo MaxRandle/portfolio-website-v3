@@ -70,16 +70,10 @@ export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
   let hasContent = false;
   let hasHeading = false;
 
-  console.log(hasMedia, hasContent, hasHeading);
-
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      console.log("inchild");
       if (child.type === CardMedia) hasMedia = true;
-      if (child.type === CardContent) {
-        console.log("has");
-        hasContent = true;
-      }
+      if (child.type === CardContent) hasContent = true;
       if (child.type === CardHeading) hasHeading = true;
 
       return React.cloneElement(child, {});
