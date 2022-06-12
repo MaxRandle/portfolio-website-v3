@@ -120,7 +120,7 @@ const Home: NextPage = () => {
                   color={iconColor}
                   size={48}
                 />
-                <div className="">
+                <div>
                   <Heading level={4}>{name}</Heading>
                   <Typography
                     className="mt-4"

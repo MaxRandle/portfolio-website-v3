@@ -1,13 +1,4 @@
-import {
-  SiAmazonaws,
-  SiDocker,
-  SiGraphql,
-  SiMongodb,
-  SiNodedotjs,
-  SiReact,
-  SiSvelte,
-  SiTypescript,
-} from "react-icons/si";
+import { SiAmazonaws, SiDocker, SiGraphql, SiMongodb, SiNodedotjs, SiReact, SiSvelte, SiTypescript } from "react-icons/si";
 
 const homePageContent = {
   hero: {
@@ -28,29 +19,25 @@ const homePageContent = {
     contentArray: [
       {
         name: "TypeScript",
-        description:
-          "TypeScript is great, I'm sold, I can never go back, if you're not using it... like... what.",
+        description: "TypeScript is great, I'm sold, I can never go back, if you're still writing JavaScript... like... what.",
         IconComponent: SiTypescript,
         iconColor: "#4476c0",
       },
       {
         name: "React",
-        description:
-          "React is lightweight, intuitive, and it just works. There are very few aspect of react that I feel are clunky and unpolished.",
+        description: "React is lightweight, intuitive, and it just works. There are very few aspect of react that I feel are clunky and unpolished.",
         IconComponent: SiReact,
         iconColor: "#7ccdea",
       },
       {
         name: "GraphQL",
-        description:
-          "Front end devs love it, back end devs hate it. The only thing that matters is that all must surrender to the revolution.",
+        description: "Front end devs love it, back end devs hate it. The only thing that matters is that all must surrender to the revolution.",
         IconComponent: SiGraphql,
         iconColor: "#d446a7",
       },
       {
         name: "Node",
-        description:
-          "Perfect stack for quickly building small web servers with very low set up time and a great community and ecosystem.",
+        description: "Perfect stack for quickly building small web servers with very low set up time and a great community and ecosystem.",
         IconComponent: SiNodedotjs,
         iconColor: "#98c635",
       },
@@ -105,8 +92,7 @@ const homePageContent = {
       {
         alt: "rocket league",
         src: "media/rocket-league.jpg",
-        description:
-          "Rocket league is a fast pased and highly competitive online game which my friends and I love and play often.",
+        description: "Rocket league is a fast pased and highly competitive online game which my friends and I love and play often.",
       },
       {
         alt: "racing drone",
@@ -116,14 +102,12 @@ const homePageContent = {
       {
         alt: "coffe art",
         src: "media/coffee.jpg",
-        description:
-          "I love coffee and I'm learning how to create latte foam patterns.",
+        description: "I love coffee and I'm learning how to create latte foam patterns.",
       },
       {
         alt: "max with guitar",
         src: "media/max-guitar.jpg",
-        description:
-          "I've been playing guitar for over 10 years. I like to do fingerstyle covers of popular songs.",
+        description: "I've been playing guitar for over 10 years. I like to do fingerstyle covers of popular songs.",
       },
       {
         alt: "homemade pasta",
@@ -139,8 +123,7 @@ const homePageContent = {
       {
         alt: "berlin wall",
         src: "media/berlin-wall.jpg",
-        description:
-          "I have dearly missed travelling the last few years and can't wait to go back to europe. This picture is from the berlin wall.",
+        description: "I have dearly missed travelling the last few years and can't wait to go back to europe. This picture is from the berlin wall.",
       },
       {
         alt: "sleeping kitty",
@@ -153,29 +136,24 @@ const homePageContent = {
   projects: {
     heading: "About me",
     subheading: "My Projects",
-    content:
-      "I am a very active programmer outside of work. Here are a collection of some of my projcets for you to check out!",
+    content: "I am a very active programmer outside of work. Here are a collection of some of my projcets for you to check out!",
     media: "media/max-art.jpg",
     contentArray: [
       {
         name: "P5.js",
-        description:
-          "A collection of small projects I made using Processing for JavaScript while I was at university.",
+        description: "A collection of small projects I made using Processing for JavaScript while I was at university.",
       },
       {
         name: "UTTT AI",
-        description:
-          "An AI agent that can play the game of Ultimate Tic Tac Toe.",
+        description: "An AI agent that can play the game of Ultimate Tic Tac Toe.",
       },
       {
         name: "I.S.S docking autopilot",
-        description:
-          "Autopilot script for the SpaceX International Spacestation cking simulator.",
+        description: "Autopilot script for the SpaceX International Spacestation cking simulator.",
       },
       {
         name: "Randle Recipes",
-        description:
-          "Online family cookbook that I made in collaboration with my cousin.",
+        description: "Online family cookbook that I made in collaboration with my cousin.",
       },
     ],
     linkText: "Go to projects",

@@ -2,17 +2,18 @@ import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 interface IFigureProps extends React.HTMLAttributes<HTMLDivElement> {
+  src: string;
+  alt: string;
   radius?: "sm";
   aspectRatio?: "1:1" | "5:3";
   children?: ReactNode;
-  src: string;
-  alt: string;
 }
 
 export const StyledFigure = styled.figure<Pick<IFigureProps, "radius" | "aspectRatio">>`
   --figure-border-radius: 0rem;
   --figure-padding-bottom: 100%;
 
+  box-sizing: border-box;
   position: relative;
   overflow: hidden;
   border-radius: var(--figure-border-radius);
@@ -37,11 +38,12 @@ export const StyledFigure = styled.figure<Pick<IFigureProps, "radius" | "aspectR
       : ""}
 `;
 
+// TODO replace img with Next/Image
+
 const StyledImage = styled.img`
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -85,7 +87,7 @@ export const Figure: React.FC<IFigureProps> = ({ className, src, alt, radius, as
       <StyledImage
         draggable="false"
         src={src || kitten}
-        alt={alt}
+        alt={alt || "kitten"}
       />
       {children ? <StyledOverlay>{children}</StyledOverlay> : null}
     </StyledFigure>

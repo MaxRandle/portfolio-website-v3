@@ -40,9 +40,6 @@ export const getProjectFromSlug = (slug: string): Project => {
   const source = fs.readFileSync(postPath);
   const { content, data } = matter(source);
 
-  console.log("content, data");
-  console.log(content, data);
-
   return {
     content,
     meta: {

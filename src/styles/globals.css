@@ -196,8 +196,8 @@
   /* border */
 
   --border-color: var(--base-200);
-  --border-radius-sm: 0.5rem;
-  --border-radius-base: 1rem;
+  --border-radius-sm: 8px;
+  --border-radius-base: 16px;
 
   /* body */
   --body-bg: var(--base-200);
@@ -229,6 +229,9 @@
   /* box */
   --box-bg-primary: var(--primary-700);
   --box-bg-secondary: var(--secondary-400);
+
+  /* card */
+  --card-bg: var(--base-800);
 }
 /* } */
 
