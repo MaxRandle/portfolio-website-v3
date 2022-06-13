@@ -13,6 +13,7 @@ import { Button } from "@/components/Button";
 import { ROUTES } from "@/config/ROUTES";
 import { FiArrowLeft } from "react-icons/fi";
 import { Heading } from "@/components/Heading";
+import { GithubRepositoryChip } from "@/components/GithubRepositoryChip";
 
 interface IPageProps {
   project: {
@@ -22,10 +23,12 @@ interface IPageProps {
 }
 
 const ProjectPage: NextPage<IPageProps> = ({ project }) => {
+  const FRONTMATTER = project.meta as { [key: string]: any };
+
   return (
     <>
       <Head>
-        <title>{project.meta.title}</title>
+        <title>{FRONTMATTER.title}</title>
       </Head>
       <PageLayout>
         <Section>
@@ -43,8 +46,12 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
                 className="mt-2"
                 level={1}
               >
-                {project.meta.title}
+                {FRONTMATTER.title}
               </Heading>
+              <GithubRepositoryChip
+                className="mt-4"
+                repo={FRONTMATTER.repo}
+              />
             </Box>
           </div>
         </Section>
@@ -52,7 +59,10 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
         <Section>
           <div className="container">
             <Box>
-              <MDXRemote {...project.source} />
+              <MDXRemote
+                {...project.source}
+                scope={FRONTMATTER}
+              />
             </Box>
           </div>
         </Section>
@@ -72,6 +82,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   });
 
+  console.log(mdxSource);
   return { props: { project: { source: mdxSource, meta } } };
 };
 

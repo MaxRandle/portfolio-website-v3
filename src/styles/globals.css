@@ -5,8 +5,10 @@
 :root {
   /* typography */
 
-  --fonts-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  --fonts-base: "CircularPro", "Gill Sans", "Gill Sans MT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* --fonts-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif; */
 
   --heading-line-height: 1;
 

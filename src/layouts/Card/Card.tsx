@@ -91,3 +91,34 @@ export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
     </StyledCard>
   );
 };
+
+// DEMO:
+
+/*
+
+<Card
+  isResponsive
+  key={meta.slug}
+  href={`/projects/${meta.slug}`}
+>
+  <CardMedia className="w-24 sm:w-40 h-24 sm:h-40">
+    <Figure
+      className="bg-purple-200"
+      alt="seal"
+      src="/media/seal1.png"
+    />
+  </CardMedia>
+  <CardContent className="space-y-4">
+    <Heading level={4}>{meta.title}</Heading>
+    <Typography>{meta.summary}</Typography>
+    <Typography
+      variant="caption"
+      color="faded"
+      style={{ textTransform: "uppercase" }}
+    >
+      {meta.tags.join(" | ")}
+    </Typography>
+  </CardContent>
+</Card>
+
+*/
