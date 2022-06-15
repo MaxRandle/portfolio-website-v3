@@ -62,7 +62,7 @@ const Home: NextPage = () => {
       <Section {...props}>
         <div className="container">
           <Box
-            color="secondary"
+            palette="secondary"
             texture="rg2"
             isResponsive
           >
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
               <MediaHeader>
                 <Typography
                   variant="subheading"
-                  color="rainbow-reverse"
+                  palette="rainbow-reverse"
                 >
                   {homePageContent.work.heading}
                 </Typography>
@@ -104,7 +104,7 @@ const Home: NextPage = () => {
             <div className="lg:col-span-2">
               <Typography
                 variant="subheading"
-                color="rainbow"
+                palette="rainbow"
               >
                 {homePageContent.skills.heading}
               </Typography>
@@ -187,7 +187,7 @@ const Home: NextPage = () => {
         <div className="container space-y-4">
           <Typography
             variant="subheading"
-            color="rainbow-reverse"
+            palette="rainbow-reverse"
           >
             {homePageContent.hobbies.heading}
           </Typography>
@@ -241,14 +241,14 @@ const Home: NextPage = () => {
           <Box
             isResponsive
             className="space-y-10"
-            color="secondary"
+            palette="secondary"
             texture="rg2"
           >
             <Media layout="reverse">
               <MediaHeader>
                 <Typography
                   variant="subheading"
-                  color="rainbow"
+                  palette="rainbow"
                 >
                   {homePageContent.projects.heading}
                 </Typography>

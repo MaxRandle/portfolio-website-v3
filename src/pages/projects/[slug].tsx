@@ -82,7 +82,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   });
 
-  console.log(mdxSource);
   return { props: { project: { source: mdxSource, meta } } };
 };
 

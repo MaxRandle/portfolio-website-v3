@@ -1,11 +1,11 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { MDXProvider } from "@mdx-js/react";
-import MDXComponents from "@/components/MDXComponents";
+import MDXComponentMap from "@/components/MDXComponentMap";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <MDXProvider components={MDXComponents}>
+    <MDXProvider components={MDXComponentMap}>
       <Component {...pageProps} />
     </MDXProvider>
   );
