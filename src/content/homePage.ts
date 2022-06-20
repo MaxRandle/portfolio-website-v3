@@ -7,15 +7,13 @@ const homePageContent = {
       "Find out a little bit about me, download my CV, play around with some of my embedded projects, and enjoy the design! I put a lot of effort into it.",
   },
   work: {
-    heading: "About me",
-    subheading: "My work",
+    heading: "My work",
     content:
       "I am an intermediate level front end software engineer, with a passion for creating fast, responsive, seamless, and accessible web applications. I value readability, consistency, simplicity, and agnosticism as the core paradigms of my coding mantra. In my current role I embrace these values to write professional grade react components at a very high standard.",
     media: "media/max.jpg",
   },
   skills: {
-    heading: "About me",
-    subheading: "My skills",
+    heading: "My skills",
     contentArray: [
       {
         name: "TypeScript",
@@ -86,8 +84,7 @@ const homePageContent = {
     },
   },
   hobbies: {
-    heading: "About me",
-    subheading: "My hobbies",
+    heading: "My hobbies",
     imageReel: [
       {
         alt: "rocket league",
@@ -134,8 +131,7 @@ const homePageContent = {
     contentArray: [],
   },
   projects: {
-    heading: "About me",
-    subheading: "My Projects",
+    heading: "My Projects",
     content: "I am a very active programmer outside of work. Here are a collection of some of my projcets for you to check out!",
     media: "media/max-art.jpg",
     contentArray: [

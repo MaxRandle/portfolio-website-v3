@@ -62,19 +62,13 @@ const Home: NextPage = () => {
       <Section {...props}>
         <div className="container">
           <Box
-            color="secondary"
+            palette="secondary"
             texture="rg2"
             isResponsive
           >
             <Media>
               <MediaHeader>
-                <Typography
-                  variant="subheading"
-                  color="rainbow-reverse"
-                >
-                  {homePageContent.work.heading}
-                </Typography>
-                <Heading className="mt-4">{homePageContent.work.subheading}</Heading>
+                <Heading palette="rainbow">{homePageContent.work.heading}</Heading>
               </MediaHeader>
               <MediaMedia>
                 <Figure
@@ -102,13 +96,7 @@ const Home: NextPage = () => {
             isResponsive
           >
             <div className="lg:col-span-2">
-              <Typography
-                variant="subheading"
-                color="rainbow"
-              >
-                {homePageContent.skills.heading}
-              </Typography>
-              <Heading className="mt-4">{homePageContent.skills.subheading}</Heading>
+              <Heading palette="rainbow">{homePageContent.skills.heading}</Heading>
             </div>
             {homePageContent.skills.contentArray.map(({ name, description, IconComponent, iconColor }) => (
               <div
@@ -185,13 +173,7 @@ const Home: NextPage = () => {
         {...props}
       >
         <div className="container space-y-4">
-          <Typography
-            variant="subheading"
-            color="rainbow-reverse"
-          >
-            {homePageContent.hobbies.heading}
-          </Typography>
-          <Heading>{homePageContent.hobbies.subheading}</Heading>
+          <Heading palette="rainbow">{homePageContent.hobbies.heading}</Heading>
         </div>
 
         <GridReel>
@@ -241,18 +223,12 @@ const Home: NextPage = () => {
           <Box
             isResponsive
             className="space-y-10"
-            color="secondary"
+            palette="secondary"
             texture="rg2"
           >
             <Media layout="reverse">
               <MediaHeader>
-                <Typography
-                  variant="subheading"
-                  color="rainbow"
-                >
-                  {homePageContent.projects.heading}
-                </Typography>
-                <Heading className="mt-4">{homePageContent.projects.subheading}</Heading>
+                <Heading palette="rainbow">{homePageContent.projects.heading}</Heading>
               </MediaHeader>
               <MediaMedia>
                 <Figure

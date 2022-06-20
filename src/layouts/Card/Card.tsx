@@ -18,7 +18,7 @@ const StyledCard = styled.div<IBoxProps>`
   border: 1px solid var(--border-color);
   color: var(--body-color);
 
-  transition: 0.3s;
+  transition: box-shadow 0.15s;
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
@@ -38,8 +38,10 @@ const StyledCard = styled.div<IBoxProps>`
     href
       ? css`
           &:hover {
-            border: 4px solid var(--secondary-500);
-            margin: -3px;
+            box-shadow: var(--hover-ring-box-shadow);
+          }
+          &:focus {
+            outline: var(--focus-ring-outline);
           }
         `
       : ""}
@@ -113,7 +115,7 @@ export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
     <Typography>{meta.summary}</Typography>
     <Typography
       variant="caption"
-      color="faded"
+      palette="faded"
       style={{ textTransform: "uppercase" }}
     >
       {meta.tags.join(" | ")}

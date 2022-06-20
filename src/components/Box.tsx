@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 interface IBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
-  color?: "primary" | "secondary";
+  palette?: "primary" | "secondary";
   texture?: "lg1" | "lg2" | "lg3" | "rg1" | "rg2" | "rg3";
   isResponsive?: boolean;
 }
@@ -51,12 +51,12 @@ const StyledBox = styled.div<IBoxProps>`
           background-color: var(--box-bg-color);
         `}
 
-  ${({ color }) =>
-    color === "primary"
+  ${({ palette }) =>
+    palette === "primary"
       ? css`
           --box-bg-color: var(--box-bg-primary);
         `
-      : color === "secondary"
+      : palette === "secondary"
       ? css`
           --box-bg-color: var(--box-bg-secondary);
         `
@@ -73,8 +73,8 @@ const StyledBox = styled.div<IBoxProps>`
         `
       : ""}
 
-  ${({ color, texture }) =>
-    !color && !texture
+  ${({ palette, texture }) =>
+    !palette && !texture
       ? css`
           --box-padding: 0px 24px;
 

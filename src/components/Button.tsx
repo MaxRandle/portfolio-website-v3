@@ -11,19 +11,25 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAncho
 }
 
 const StyledButton = styled.button<Pick<ButtonProps, "palette" | "variant">>`
+  cursor: pointer;
   appearance: none;
   text-decoration: none;
-  box-sizing: border-box;
   user-select: none;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  padding-right: 0.25rem;
+  border-radius: var(--border-radius-xs);
 
   letter-spacing: var(--typography-button-spacing);
 
   & > * + * {
     margin-left: 16px;
+  }
+
+  &:focus {
+    outline: var(--focus-ring-outline);
   }
 `;
 

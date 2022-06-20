@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 export interface ITypographyProps extends React.HTMLAttributes<HTMLParagraphElement | HTMLSpanElement> {
   variant?: "subheading" | "body" | "label" | "caption";
-  color?: "primary" | "faded" | "rainbow" | "rainbow-reverse";
+  palette?: "primary" | "faded" | "rainbow" | "rainbow-reverse";
   children?: ReactNode;
   as?: "p" | "span";
 }
@@ -35,22 +35,22 @@ const StyledTypography = styled.p<ITypographyProps>`
         `
       : ""}
 
-  ${({ color }) =>
-    color === "primary"
+  ${({ palette }) =>
+    palette === "primary"
       ? css`
           --typography-color: var(--primary-700);
         `
-      : color === "faded"
+      : palette === "faded"
       ? css`
           --typography-color: var(--base-400);
         `
-      : color === "rainbow"
+      : palette === "rainbow"
       ? css`
           background-image: repeating-linear-gradient(to right, magenta, cyan, magenta 160px);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         `
-      : color === "rainbow-reverse"
+      : palette === "rainbow-reverse"
       ? css`
           background-image: repeating-linear-gradient(to right, cyan, magenta, cyan 160px);
           -webkit-background-clip: text;

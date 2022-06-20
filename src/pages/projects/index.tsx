@@ -58,7 +58,7 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
                 <Typography>{meta.summary}</Typography>
                 <Typography
                   variant="caption"
-                  color="faded"
+                  palette="faded"
                   style={{ textTransform: "uppercase" }}
                 >
                   {meta.tags.join(" | ")}
