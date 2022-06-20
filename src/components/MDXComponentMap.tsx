@@ -1,8 +1,10 @@
 import React from "react";
 import { Heading, IHeadingProps } from "./Heading";
+
+import { MDXComponents } from "mdx/types";
 import { ITypographyProps, Typography } from "./Typography";
 
-const MDXComponents = {
+const MDXComponentMap: MDXComponents = {
   h1: (props: IHeadingProps) => (
     <Heading
       className="mt-12"
@@ -32,4 +34,4 @@ const MDXComponents = {
   ),
 };
 
-export default MDXComponents;
+export default MDXComponentMap;
