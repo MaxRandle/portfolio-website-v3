@@ -14,6 +14,7 @@ import { ROUTES } from "@/config/ROUTES";
 import { FiArrowLeft } from "react-icons/fi";
 import { Heading } from "@/components/Heading";
 import { GithubRepositoryChip } from "@/components/GithubRepositoryChip";
+import { ProjectEmbed } from "@/components/ProjectEmbed";
 
 interface IPageProps {
   project: {
@@ -62,6 +63,7 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
               <MDXRemote
                 {...project.source}
                 scope={FRONTMATTER}
+                components={{ ProjectEmbed }}
               />
             </Box>
           </div>
