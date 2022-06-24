@@ -16,6 +16,7 @@ import { Heading } from "@/components/Heading";
 import { GithubRepositoryChip } from "@/components/GithubRepositoryChip";
 import { ProjectEmbed } from "@/components/ProjectEmbed";
 import { Typography } from "@/components/Typography";
+import "highlight.js/styles/atom-one-dark.css";
 
 interface IPageProps {
   project: {
