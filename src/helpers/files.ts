@@ -20,7 +20,7 @@ export const getProjectSlugs = (): string[] => {
   return slugs;
 };
 
-export interface ProjectMeta {
+export interface ProjectMeta extends Record<string, any> {
   slug: string;
   title: string;
   year: string;

@@ -19,6 +19,7 @@ import { Button } from "@/components/Button";
 import { FiArrowRight } from "react-icons/fi";
 import { ROUTES } from "@/config/ROUTES";
 import homePageContent from "@/content/homePage";
+import { ProjectEmbed } from "@/components/ProjectEmbed";
 
 const Home: NextPage = () => {
   function Hero({ ...props }: ISectionProps) {

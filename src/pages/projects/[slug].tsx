@@ -15,6 +15,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import { Heading } from "@/components/Heading";
 import { GithubRepositoryChip } from "@/components/GithubRepositoryChip";
 import { ProjectEmbed } from "@/components/ProjectEmbed";
+import { Typography } from "@/components/Typography";
 
 interface IPageProps {
   project: {
@@ -24,7 +25,7 @@ interface IPageProps {
 }
 
 const ProjectPage: NextPage<IPageProps> = ({ project }) => {
-  const FRONTMATTER = project.meta as { [key: string]: any };
+  const FRONTMATTER = project.meta as ProjectMeta;
 
   return (
     <>
@@ -32,7 +33,7 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
         <title>{FRONTMATTER.title}</title>
       </Head>
       <PageLayout>
-        <Section>
+        <Section size="sm">
           <div className="container">
             <Box>
               <Button
@@ -41,7 +42,7 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
                 href={ROUTES.projects.root}
                 IconLeft={() => <FiArrowLeft size={24} />}
               >
-                Back to projects
+                {`Back to projects`}
               </Button>
               <Heading
                 className="mt-2"
@@ -49,6 +50,12 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
               >
                 {FRONTMATTER.title}
               </Heading>
+              <Typography
+                className="mt-4"
+                variant="subheading"
+              >
+                {FRONTMATTER.summary}
+              </Typography>
               <GithubRepositoryChip
                 className="mt-4"
                 repo={FRONTMATTER.repo}

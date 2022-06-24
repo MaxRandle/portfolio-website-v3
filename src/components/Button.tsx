@@ -28,7 +28,7 @@ const StyledButton = styled.button<Pick<ButtonProps, "palette" | "variant">>`
     margin-left: 16px;
   }
 
-  &:focus {
+  &:focus-visible {
     outline: var(--focus-ring-outline);
   }
 `;
