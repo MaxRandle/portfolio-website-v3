@@ -132,7 +132,7 @@ const homePageContent = {
   },
   projects: {
     heading: "My Projects",
-    content: "I am a very active programmer outside of work. Here are a collection of some of my projcets for you to check out!",
+    content: "I am a very active programmer outside of work. Here are a collection of some of my projects for you to check out!",
     media: "media/max-art.jpg",
     contentArray: [
       {

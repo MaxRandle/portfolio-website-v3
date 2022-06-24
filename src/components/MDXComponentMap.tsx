@@ -32,6 +32,34 @@ const MDXComponentMap: MDXComponents = {
       {...props}
     />
   ),
+  ol: (props) => (
+    <ol
+      className="mt-4"
+      {...props}
+    />
+  ),
+  pre: (props) => (
+    <pre
+      className="mt-4"
+      {...props}
+    />
+  ),
+  a: (props) => (
+    <a
+      className="mt-4"
+      target="_blank"
+      {...props}
+    />
+  ),
+  li: ({ children, ...props }) => (
+    <li
+      className="space-x-4 ml-4"
+      {...props}
+    >
+      <span>•</span>
+      <span>{children}</span>
+    </li>
+  ),
 };
 
 export default MDXComponentMap;
