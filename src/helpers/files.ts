@@ -27,6 +27,8 @@ export interface ProjectMeta extends Record<string, any> {
   summary: string;
   repo: string;
   tags: string[];
+  thumbnail: string;
+  embedSrc: string;
 }
 
 export interface Project {
@@ -51,6 +53,8 @@ export const getProjectFromSlug = (slug: string): Project => {
       repo: data.repo ?? null,
       summary: data.summary ?? null,
       tags: data.tags ?? [],
+      thumbnail: data.thumbnail ?? null,
+      embedSrc: data.embedSrc ?? null,
     },
   };
 };

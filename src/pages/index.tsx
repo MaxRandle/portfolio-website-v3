@@ -4,7 +4,7 @@ import { Heading } from "@/components/Heading";
 import { Typography } from "@/components/Typography";
 import { PageLayout } from "@/layouts/PageLayout";
 import { ISectionProps, Section } from "@/layouts/Section";
-import { Catto } from "@/components/Catto";
+// import { Catto } from "@/components/Catto";
 import { Media, MediaContent, MediaHeader, MediaMedia } from "@/layouts/media";
 import { IconButton } from "@/components/IconButton";
 
@@ -44,18 +44,18 @@ const Home: NextPage = () => {
     );
   }
 
-  function EvesDropper({ ...props }: ISectionProps) {
-    return (
-      <Section
-        {...props}
-        palette="secondary"
-        texture="lg1"
-      >
-        <div className="h-28 lg:h-16" />
-        <Catto />
-      </Section>
-    );
-  }
+  // function EvesDropper({ ...props }: ISectionProps) {
+  //   return (
+  //     <Section
+  //       {...props}
+  //       palette="secondary"
+  //       texture="lg1"
+  //     >
+  //       <div className="h-28 lg:h-16" />
+  //       <Catto />
+  //     </Section>
+  //   );
+  // }
 
   function Work({ ...props }: ISectionProps) {
     return (
@@ -258,11 +258,11 @@ const Home: NextPage = () => {
 
   return (
     <PageLayout>
-      <EvesDropper />
+      {/* <EvesDropper /> */}
       <Hero />
-      <Work />
-      <Skills />
       <Projects />
+      <Skills />
+      <Work />
       <Hobbies />
       <External />
     </PageLayout>

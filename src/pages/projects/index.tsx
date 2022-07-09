@@ -49,8 +49,8 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
               <CardMedia className="w-24 sm:w-40 h-24 sm:h-40">
                 <Figure
                   className="bg-purple-200"
-                  alt="seal"
-                  src="/media/seal1.png"
+                  alt={`${meta.title} thumbnail`}
+                  src={meta.thumbnail ?? "/media/seal1.png"}
                 />
               </CardMedia>
               <CardContent className="space-y-4">
