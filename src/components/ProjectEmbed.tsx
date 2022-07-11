@@ -11,6 +11,7 @@ const StyledProjectEmbed = styled.iframe<IProjectEmbedProps>`
     contentWidth
       ? css`
           width: ${contentWidth}px;
+          max-width: 100%;
         `
       : ""}
 

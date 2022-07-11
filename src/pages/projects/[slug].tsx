@@ -45,12 +45,14 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
               >
                 {`Back to projects`}
               </Button>
-              <Heading
-                className="mt-2"
-                level={1}
-              >
-                {FRONTMATTER.title}
-              </Heading>
+            </Box>
+          </div>
+        </Section>
+
+        <Section size="sm">
+          <div className="container">
+            <Box>
+              <Heading level={1}>{FRONTMATTER.title}</Heading>
               <Typography
                 className="mt-4"
                 variant="subheading"

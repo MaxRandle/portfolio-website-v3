@@ -27,8 +27,8 @@ export interface ProjectMeta extends Record<string, any> {
   summary: string;
   repo: string;
   tags: string[];
-  thumbnail: string;
-  embedSrc: string;
+  thumbnail?: string;
+  embedSrc?: string;
 }
 
 export interface Project {

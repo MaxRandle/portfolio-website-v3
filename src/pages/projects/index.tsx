@@ -28,12 +28,14 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
             >
               Back to homepage
             </Button>
-            <Heading
-              className="mt-2"
-              level={1}
-            >
-              {projectsPageContent.hero.heading}
-            </Heading>
+          </Box>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="container">
+          <Box>
+            <Heading level={1}>{projectsPageContent.hero.heading}</Heading>
           </Box>
         </div>
       </Section>
@@ -50,7 +52,7 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
                 <Figure
                   className="bg-purple-200"
                   alt={`${meta.title} thumbnail`}
-                  src={meta.thumbnail ?? "/media/seal1.png"}
+                  src={`/media/projects/${meta.thumbnail ?? "seal1.png"}`}
                 />
               </CardMedia>
               <CardContent className="space-y-4">
