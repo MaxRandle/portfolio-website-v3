@@ -42,32 +42,34 @@ const ProjectsPage: NextPage<{ projectMetas: ProjectMeta[] }> = (props) => {
 
       <Section>
         <div className="container flex flex-col space-y-8">
-          {projectMetas.map((meta) => (
-            <Card
-              isResponsive
-              key={meta.slug}
-              href={`/projects/${meta.slug}`}
-            >
-              <CardMedia className="w-24 sm:w-40 h-24 sm:h-40">
-                <Figure
-                  className="bg-purple-200"
-                  alt={`${meta.title} thumbnail`}
-                  src={`/media/projects/${meta.thumbnail ?? "seal1.png"}`}
-                />
-              </CardMedia>
-              <CardContent className="space-y-4">
-                <Heading level={4}>{meta.title}</Heading>
-                <Typography>{meta.summary}</Typography>
-                <Typography
-                  variant="caption"
-                  palette="faded"
-                  style={{ textTransform: "uppercase" }}
-                >
-                  {meta.tags.join(" | ")}
-                </Typography>
-              </CardContent>
-            </Card>
-          ))}
+          {projectMetas
+            .sort((a, b) => (a.year >= b.year ? -1 : 1))
+            .map((meta) => (
+              <Card
+                isResponsive
+                key={meta.slug}
+                href={`/projects/${meta.slug}`}
+              >
+                <CardMedia className="w-24 sm:w-40 h-24 sm:h-40">
+                  <Figure
+                    className="bg-purple-200"
+                    alt={`${meta.title} thumbnail`}
+                    src={`/media/projects/${meta.thumbnail ?? "seal1.png"}`}
+                  />
+                </CardMedia>
+                <CardContent className="space-y-4">
+                  <Heading level={4}>{meta.title}</Heading>
+                  <Typography>{meta.summary}</Typography>
+                  <Typography
+                    variant="caption"
+                    palette="faded"
+                    style={{ textTransform: "uppercase" }}
+                  >
+                    {meta.tags.join(" | ")}
+                  </Typography>
+                </CardContent>
+              </Card>
+            ))}
         </div>
       </Section>
     </PageLayout>
