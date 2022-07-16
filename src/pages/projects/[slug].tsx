@@ -59,10 +59,12 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
               >
                 {FRONTMATTER.summary}
               </Typography>
-              <GithubRepositoryChip
-                className="mt-4"
-                repo={FRONTMATTER.repo}
-              />
+              {FRONTMATTER.repo && (
+                <GithubRepositoryChip
+                  className="mt-4"
+                  repo={FRONTMATTER.repo}
+                />
+              )}
             </Box>
           </div>
         </Section>

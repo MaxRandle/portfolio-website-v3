@@ -47,7 +47,7 @@ const MDXComponentMap: MDXComponents = {
   a: (props) => (
     <a
       className="mt-4"
-      target="_blank"
+      // target="_blank"
       {...props}
     />
   ),
@@ -59,6 +59,12 @@ const MDXComponentMap: MDXComponents = {
       <span>•</span>
       <span>{children}</span>
     </li>
+  ),
+  strong: ({ ...props }) => (
+    <strong
+      className="text-secondary-300"
+      {...props}
+    />
   ),
 };
 
