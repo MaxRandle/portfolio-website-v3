@@ -1,10 +1,9 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { Box } from "@/components/Box";
 import { Heading } from "@/components/Heading";
 import { Typography } from "@/components/Typography";
 import { PageLayout } from "@/layouts/PageLayout";
 import { ISectionProps, Section } from "@/layouts/Section";
-// import { Catto } from "@/components/Catto";
 import { Media, MediaContent, MediaHeader, MediaMedia } from "@/layouts/media";
 import { IconButton } from "@/components/IconButton";
 
@@ -14,13 +13,11 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { CgFileDocument } from "react-icons/cg";
 import { GridReel, GridReelTrack, GridReelTrackItem } from "@/layouts/grid-reel";
 import { Figure } from "@/components/Figure";
-import { Button } from "@/components/Button";
-
-import { FiArrowRight } from "react-icons/fi";
-import { ROUTES } from "@/config/ROUTES";
 import homePageContent from "@/content/homePage";
+import { ProjectsList } from "@/layouts/ProjectsList";
+import { getAllProjectMetas, ProjectMeta } from "@/helpers/files";
 
-const Home: NextPage = () => {
+const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
   function Hero({ ...props }: ISectionProps) {
     return (
       <Section {...props}>
@@ -43,19 +40,6 @@ const Home: NextPage = () => {
       </Section>
     );
   }
-
-  // function EvesDropper({ ...props }: ISectionProps) {
-  //   return (
-  //     <Section
-  //       {...props}
-  //       palette="secondary"
-  //       texture="lg1"
-  //     >
-  //       <div className="h-28 lg:h-16" />
-  //       <Catto />
-  //     </Section>
-  //   );
-  // }
 
   function Work({ ...props }: ISectionProps) {
     return (
@@ -91,10 +75,7 @@ const Home: NextPage = () => {
     return (
       <Section {...props}>
         <div className="container">
-          <Box
-            className="grid gap-10 grid-cols-1 lg:grid-cols-2"
-            isResponsive
-          >
+          <Box className="grid gap-10 grid-cols-1 lg:grid-cols-2">
             <div className="lg:col-span-2">
               <Heading palette="rainbow">{homePageContent.skills.heading}</Heading>
             </div>
@@ -106,7 +87,7 @@ const Home: NextPage = () => {
                 <IconComponent
                   className="shrink-0 mr-6"
                   color={iconColor}
-                  size={48}
+                  size={32}
                 />
                 <div>
                   <Heading level={4}>{name}</Heading>
@@ -173,7 +154,9 @@ const Home: NextPage = () => {
         {...props}
       >
         <div className="container space-y-4">
-          <Heading palette="rainbow">{homePageContent.hobbies.heading}</Heading>
+          <Box>
+            <Heading palette="rainbow">{homePageContent.hobbies.heading}</Heading>
+          </Box>
         </div>
 
         <GridReel>
@@ -216,41 +199,17 @@ const Home: NextPage = () => {
     return (
       <Section
         id="projects"
-        className="space-y-6 lg:space-y-10"
         {...props}
       >
         <div className="container">
-          <Box
-            isResponsive
-            className="space-y-10"
-            palette="secondary"
-            texture="rg2"
-          >
-            <Media layout="reverse">
-              <MediaHeader>
-                <Heading palette="rainbow">{homePageContent.projects.heading}</Heading>
-              </MediaHeader>
-              <MediaMedia>
-                <Figure
-                  src={homePageContent.projects.media}
-                  alt="max"
-                  radius="sm"
-                />
-              </MediaMedia>
-              <MediaContent>
-                <Typography>{homePageContent.projects.content}</Typography>
-                <Button
-                  className="mt-10"
-                  variant="inline"
-                  palette="primary"
-                  href={ROUTES.projects.root}
-                  IconRight={() => <FiArrowRight size={24} />}
-                >
-                  {homePageContent.projects.linkText}
-                </Button>
-              </MediaContent>
-            </Media>
+          <Box className="space-y-4 lg:space-y-6">
+            <Heading palette="rainbow">{homePageContent.projects.heading}</Heading>
+            <Typography>{homePageContent.projects.content}</Typography>
           </Box>
+          <ProjectsList
+            className="mt-6 lg:mt-10"
+            projectMetas={projectMetas}
+          />
         </div>
       </Section>
     );
@@ -258,11 +217,10 @@ const Home: NextPage = () => {
 
   return (
     <PageLayout>
-      {/* <EvesDropper /> */}
       <Hero />
+      <Work />
       <Projects />
       <Skills />
-      <Work />
       <Hobbies />
       <External />
     </PageLayout>
@@ -270,3 +228,8 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = () => {
+  const projectMetas = getAllProjectMetas();
+  return { props: { projectMetas } };
+};

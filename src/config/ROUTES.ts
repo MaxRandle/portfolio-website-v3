@@ -1,4 +1,4 @@
 export const ROUTES = {
   home: { root: "/" },
-  projects: { root: "/projects/" },
+  projects: { slug: "/projects/:slug" },
 };

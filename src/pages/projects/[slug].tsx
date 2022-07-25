@@ -40,7 +40,7 @@ const ProjectPage: NextPage<IPageProps> = ({ project }) => {
               <Button
                 variant="inline"
                 palette="primary"
-                href={ROUTES.projects.root}
+                href={ROUTES.home.root + "#projects"}
                 IconLeft={() => <FiArrowLeft size={24} />}
               >
                 {`Back to projects`}

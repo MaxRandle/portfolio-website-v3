@@ -40,7 +40,7 @@ const StyledCard = styled.div<IBoxProps>`
           &:hover {
             box-shadow: var(--hover-ring-box-shadow);
           }
-          &:focus {
+          &:focus-visible {
             outline: var(--focus-ring-outline);
           }
         `
