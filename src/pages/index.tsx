@@ -52,7 +52,7 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
           >
             <Media>
               <MediaHeader>
-                <Heading palette="rainbow">{homePageContent.work.heading}</Heading>
+                <Heading>{homePageContent.work.heading}</Heading>
               </MediaHeader>
               <MediaMedia>
                 <Figure
@@ -77,7 +77,7 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
         <div className="container">
           <Box className="grid gap-10 grid-cols-1 lg:grid-cols-2">
             <div className="lg:col-span-2">
-              <Heading palette="rainbow">{homePageContent.skills.heading}</Heading>
+              <Heading>{homePageContent.skills.heading}</Heading>
             </div>
             {homePageContent.skills.contentArray.map(({ name, description, IconComponent, iconColor }) => (
               <div
@@ -155,7 +155,7 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
       >
         <div className="container space-y-4">
           <Box>
-            <Heading palette="rainbow">{homePageContent.hobbies.heading}</Heading>
+            <Heading>{homePageContent.hobbies.heading}</Heading>
           </Box>
         </div>
 
@@ -203,7 +203,7 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
       >
         <div className="container">
           <Box className="space-y-4 lg:space-y-6">
-            <Heading palette="rainbow">{homePageContent.projects.heading}</Heading>
+            <Heading>{homePageContent.projects.heading}</Heading>
             <Typography>{homePageContent.projects.content}</Typography>
           </Box>
           <ProjectsList
