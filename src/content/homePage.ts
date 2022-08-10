@@ -61,7 +61,7 @@ const homePageContent = {
         iconColor: "#6ce974",
       },
       {
-        name: "aws",
+        name: "AWS",
         description:
           "Devops and deployment is hard and aws does not make it any easier. But the docs are quite good and always up to date and in my experience once you get it working it stays working.",
         IconComponent: SiAmazonaws,
