@@ -97,7 +97,7 @@ const Home: NextPage = () => {
         <Heading level={2}>Skills</Heading>
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           {homePageContent.skills.contentArray.map((skill) => (
-            <Typography>{skill.name}</Typography>
+            <Typography key={skill.name}>{skill.name}</Typography>
           ))}
         </div>
       </Box>
@@ -105,9 +105,57 @@ const Home: NextPage = () => {
   }
 
   function Experience() {
+    interface IWorkPlaceProps {
+      jobTitle: string;
+      dateRange: string;
+      companyName?: string;
+      responsibilities?: string[];
+    }
+
+    const WorkPlace = ({ jobTitle, dateRange, companyName, responsibilities, ...props }: IWorkPlaceProps) => {
+      return (
+        <div {...props}>
+          <Typography variant="subheading">{jobTitle}</Typography>
+          <Typography>{companyName}</Typography>
+          <Typography
+            variant="label"
+            palette="faded"
+          >
+            {dateRange}
+          </Typography>
+          <ul className="space-y-4">
+            {responsibilities?.map((responsibility) => (
+              <li key={responsibility}>{responsibility}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    };
+
+    const WORKPLACES: IWorkPlaceProps[] = [
+      {
+        jobTitle: "Front End Software Engineer",
+        dateRange: "March 2022 - present",
+        companyName: "Kernel Wealth",
+        responsibilities: [
+          "Writing unit tests and end to end tests.",
+          "Build accessible, context agnostic, functional react components that leverage the power of TypeScript with styled components and postcss plugins that facilitate next gen css features.",
+          "Setting new software patterns that are defined enough to scale but simple enough to be evolved with uncertain future requirements.",
+          "Working with NextJS to build functional web apps including form flows, as well as fast, static, and content rich web pages",
+          "Build pages that demonstrate dynamic, statically rendered content and are therefore blazing fast and do not contain stale data thanks to NextJS capability to do incremental static regeneration.",
+        ],
+      },
+    ];
+
     return (
       <Box className="space-y-4 lg:space-y-8">
         <Heading level={2}>Work Experience</Heading>
+        {WORKPLACES.map((workPlace) => (
+          <WorkPlace
+            key={`jobTitle-${workPlace.jobTitle} dateRange-${workPlace.dateRange}`}
+            {...workPlace}
+          />
+        ))}
       </Box>
     );
   }
