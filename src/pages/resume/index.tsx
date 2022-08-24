@@ -145,7 +145,7 @@ const Home: NextPage = () => {
         dateRange: "March 2022 - present",
         companyName: "Kernel Wealth",
         responsibilities: [
-          "Built functional web apps With TypeScript/React/Next ",
+          "Built functional web apps with TypeScript/React/Next ",
           "Built static marketing pages with dynamic content served from a CMS.",
           "Setup end to end testing capabilities to run as a build step in bitbucket.",
           "Precisely implement figma designs into clean, accessible, context agnostic, functional react components with multiple states and variants using Sass with styled-components and a BEM-inspired style system.",
