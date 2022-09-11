@@ -9,23 +9,27 @@ export interface IMediaProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const StyledMedia = styled.div<IMediaProps>`
   --media-gap: 24px;
-  --media-gap--md: 40px;
+  --media-flex-gap: var(--media-gap);
+  --media-grid-gap: 0;
 
   display: flex;
   flex-direction: column;
 
   & > * + * {
-    margin-top: var(--media-gap);
+    margin-top: var(--media-flex-gap);
   }
 
   @media ${MEDIA_BREAKPOINTS.md} {
-    --media-gap: var(--media-gap--md);
+    --media-gap: 40px;
   }
 
   @media ${MEDIA_BREAKPOINTS.lg} {
+    --media-flex-gap: 0;
+    --media-grid-gap: var(--media-gap);
+
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--media-gap);
+    gap: var(--media-grid-gap);
 
     ${({ layout }) =>
       layout === "reverse"
