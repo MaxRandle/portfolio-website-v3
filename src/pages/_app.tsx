@@ -1,8 +1,9 @@
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { MDXProvider } from "@mdx-js/react";
-import MDXComponentMap from "@/components/MDXComponentMap";
+import MDXComponentMap from "@components/MDXComponentMap";
+import "@styles/globals.css";
+import { GlobalStyles } from "@styles/GlobalStyles";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,6 +15,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="upgrade-insecure-requests"
         ></meta>
       </Head>
+
+      <GlobalStyles />
       <MDXProvider components={MDXComponentMap}>
         <Component {...pageProps} />
       </MDXProvider>

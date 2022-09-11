@@ -8,11 +8,11 @@ thumbnail: "alpha-tac.png"
 embedSrc: "https://alpha-tac.vercel.app/"
 ---
 
-# The game of Ultimate Tic Tac Toe
+## The game of Ultimate Tic Tac Toe
 
 The game of UTTT (Ultimate Tic Tac Toe) is a recursive version of the more familiar game of Tic Tac Toe (Naughts and Crosses). The game is played on a board consisting of nine mini-boards arranged into the shape of a Tic Tac Toe board. Victory is achieved by winning three mini-boards in a row. The twist is that by playing a move, you restrict your opponents move choices to only play in the mini-board relative to the cell you have just played in. For example if you play in the top right cell of any given mini-board, your opponent must play in the top right mini-board.
 
-# Interactive demo
+## Interactive demo
 
 <ProjectEmbed
   className="mt-12"
@@ -21,11 +21,11 @@ The game of UTTT (Ultimate Tic Tac Toe) is a recursive version of the more famil
   contentWidth={425}
 />
 
-# UTTT is really hard
+## UTTT is really hard
 
 This game presents interesting challenges for both humans and machines to play. The biggest challenge facing players whether your brain is made of silicon or flesh is that it is very difficult to determine which player has an advantage for a given game state. Even some of the worlds best human players struggle to accurately evaluate a game of UTTT played at a high level.
 
-# An approach to building an agent that can play the game
+## An approach to building an agent that can play the game
 
 Designing an agent that can play this game involves implementing two key components. Firstly we need to implement a tree searching algorithm that can look into possible future positions of the game. And secondly we need to come up with an evaluation function to guide our search by identifying advantageous positions to play for.
 
@@ -43,7 +43,7 @@ Firstly it checks if the game is over and if it is, returns a large positive or 
 
 The function then evaluates the large TTT board the same way that we evaluate the small boards and applies a weight to it, as it is preferable to win the large board over a mini-board.
 
-# Optimisations
+## Optimisations
 
 With these two components we can create an agent that is able to play considerably better than an untrained human. But it is still resource intensive and takes a long time to calculate the best move. So we can apply some optimisation to vastly improve calculation speeds.
 

@@ -1,5 +1,5 @@
-import { AppFooter } from "@/components/AppFooter";
-import { AppHeader } from "@/components/AppHeader";
+import { AppFooter } from "@components/AppFooter";
+import { AppHeader } from "@components/AppHeader";
 import { ReactNode } from "react";
 import styled from "styled-components";
 

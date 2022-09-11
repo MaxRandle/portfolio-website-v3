@@ -1,16 +1,23 @@
 import { ReactNode } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   children?: ReactNode;
-  variant?: "default" | "outline" | "inline";
-  palette?: "primary" | "secondary";
+  variant?: "default" | "inline";
   href?: string;
   IconRight?: React.FC;
   IconLeft?: React.FC;
 }
 
-const StyledButton = styled.button<Pick<ButtonProps, "palette" | "variant">>`
+const StyledButton = styled.button<ButtonProps>`
+  --button-bg: var(--primary--base);
+  --button-color: var(--text-color--on-primary);
+
+  background: var(--button-bg);
+  color: var(--button-color);
+  letter-spacing: var(--text-letter-spacing--button);
+  font-weight: var(--text-font-weight--button);
+
   cursor: pointer;
   appearance: none;
   text-decoration: none;
@@ -20,20 +27,21 @@ const StyledButton = styled.button<Pick<ButtonProps, "palette" | "variant">>`
   align-items: center;
   justify-content: center;
   padding-right: 0.25rem;
-  border-radius: var(--border-radius-xs);
-
-  letter-spacing: var(--typography-button-spacing);
 
   & > * + * {
-    margin-left: 16px;
+    margin-left: 1rem;
   }
 
-  &:focus-visible {
-    outline: var(--focus-ring-outline);
-  }
+  ${({ variant }) =>
+    variant === "inline"
+      ? css`
+          --button-bg: transparent;
+          --button-color: var(--text-color--primary);
+        `
+      : ""}
 `;
 
-export const Button: React.FC<ButtonProps> = ({ children, variant, href, IconLeft, IconRight, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({ children, href, IconLeft, IconRight, ...props }) => {
   return (
     <StyledButton
       as={href ? "a" : "button"}

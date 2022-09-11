@@ -1,4 +1,4 @@
-import { MEDIA_BREAKPOINTS } from "@/config/media-queries";
+import { MEDIA_BREAKPOINTS } from "@config/media-queries";
 import { ReactNode } from "react";
 import styled from "styled-components";
 

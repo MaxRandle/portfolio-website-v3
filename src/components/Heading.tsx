@@ -1,63 +1,47 @@
-import { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 export interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  level?: 1 | 2 | 3 | 4;
-  children?: ReactNode;
-  palette?: "primary" | "faded" | "rainbow";
+  level?: 1 | 2 | 3;
+  palette?: "base" | "weak";
 }
 
 const StyledHeading = styled.h3<IHeadingProps>`
-  --font-size: var(--heading-level3-size);
-
-  font-size: var(--font-size);
-  line-height: var(--heading-line-height);
+  font-size: var(--text-font-size);
+  color: var(--heading-color);
 
   ${({ level }) =>
     level === 1
       ? css`
-          --font-size: var(--heading-level1-size);
+          --text-font-size: var(--text-font-size--h1);
         `
       : level === 2
       ? css`
-          --font-size: var(--heading-level2-size);
+          --text-font-size: var(--text-font-size--h2);
         `
       : level === 3
       ? css`
-          --font-size: var(--heading-level3-size);
-        `
-      : level === 4
-      ? css`
-          --font-size: var(--heading-level4-size);
+          --text-font-size: var(--text-font-size--h3);
         `
       : ""}
 
   ${({ palette }) =>
-    palette === "primary"
+    palette === "base"
       ? css`
-          --heading-color: var(--primary-700);
+          --heading-color: var(--text-color--base);
         `
-      : palette === "faded"
+      : palette === "weak"
       ? css`
-          --heading-color: var(--base-400);
-        `
-      : palette === "rainbow"
-      ? css`
-          background-image: repeating-linear-gradient(to right, magenta, cyan, magenta 160px);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          --heading-color: var(--text-color--weak);
         `
       : ""}
 `;
 
-export const Heading: React.FC<IHeadingProps> = ({ children, level = 3, ...props }) => {
+export const Heading: React.FC<IHeadingProps> = ({ level = 1, ...props }) => {
   return (
     <StyledHeading
       as={`h${level}`}
       level={level}
       {...props}
-    >
-      {children}
-    </StyledHeading>
+    />
   );
 };

@@ -1,21 +1,26 @@
-import { MEDIA_BREAKPOINTS } from "@/config/media-queries";
+import { MEDIA_BREAKPOINTS } from "@config/media-queries";
 import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { CardMedia, CardContent } from "./index";
 
-interface IBoxProps extends React.HTMLAttributes<HTMLDivElement | HTMLAnchorElement> {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement | HTMLAnchorElement> {
   children?: ReactNode;
-  isResponsive?: boolean;
+  isRounded?: boolean | "sm" | "md";
   href?: string;
 }
 
-const StyledCard = styled.div<IBoxProps>`
+const StyledCard = styled.div<CardProps>`
   --card-padding: 16px;
-  --card-border-radius: var(--border-radius-base);
+  --card-border-radius: 0;
+  --card-border-radius--rounded: var(--border-radius--surface);
+  --card-border-width: 1px 0px;
+  --card-bg: var(--surface-bg--raised);
+  --card-border: 1px solid var(--border-color--base);
 
   border-radius: var(--card-border-radius);
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  border: var(--card-border);
+  border-width: var(--card-border-width);
   color: var(--body-color);
 
   transition: box-shadow 0.15s;
@@ -23,13 +28,24 @@ const StyledCard = styled.div<IBoxProps>`
   overflow: hidden;
   display: flex;
 
-  ${({ isResponsive }) =>
-    isResponsive
+  ${({ isRounded }) =>
+    isRounded === true
       ? css`
-          --card-border-radius: 0px;
-
+          --card-border-radius: var(--card-border-radius--rounded);
+          --card-border-width: 1px;
+        `
+      : isRounded === "sm"
+      ? css`
+          @media ${MEDIA_BREAKPOINTS.sm} {
+            --card-border-radius: var(--card-border-radius--rounded);
+            --card-border-width: 1px;
+          }
+        `
+      : isRounded === "md"
+      ? css`
           @media ${MEDIA_BREAKPOINTS.md} {
-            --card-border-radius: var(--border-radius-base);
+            --card-border-radius: var(--card-border-radius--rounded);
+            --card-border-width: 1px;
           }
         `
       : ""}
@@ -37,11 +53,10 @@ const StyledCard = styled.div<IBoxProps>`
   ${({ href }) =>
     href
       ? css`
-          &:hover {
-            box-shadow: var(--hover-ring-box-shadow);
-          }
+          &:hover,
           &:focus-visible {
-            outline: var(--focus-ring-outline);
+            box-shadow: var(--shadows--hover);
+            --card-border: 1px solid var(--border-color--hover);
           }
         `
       : ""}
@@ -60,7 +75,7 @@ const StyledContentContainer = styled.div`
   }
 `;
 
-export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
+export const Card: React.FC<CardProps> = ({ href, children, ...props }) => {
   let hasMedia = false;
 
   let CardMediaComponent: ReactNode;
@@ -99,7 +114,7 @@ export const Card: React.FC<IBoxProps> = ({ href, children, ...props }) => {
 /*
 
 <Card
-  isResponsive
+  isRounded
   key={meta.slug}
   href={`/projects/${meta.slug}`}
 >

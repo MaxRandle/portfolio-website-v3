@@ -2,31 +2,31 @@ import React from "react";
 import { Heading, IHeadingProps } from "./Heading";
 
 import { MDXComponents } from "mdx/types";
-import { ITypographyProps, Typography } from "./Typography";
+import { TypographyProps, Typography } from "./Typography";
 
 const MDXComponentMap: MDXComponents = {
   h1: (props: IHeadingProps) => (
     <Heading
       className="mt-12"
-      level={2}
+      level={1}
       {...props}
     />
   ),
   h2: (props: IHeadingProps) => (
     <Heading
       className="mt-8"
-      level={3}
+      level={2}
       {...props}
     />
   ),
   h3: (props: IHeadingProps) => (
     <Heading
       className="mt-4"
-      level={4}
+      level={3}
       {...props}
     />
   ),
-  p: (props: ITypographyProps) => (
+  p: (props: TypographyProps) => (
     <Typography
       className="mt-4"
       {...props}

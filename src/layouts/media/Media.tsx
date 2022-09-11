@@ -1,4 +1,4 @@
-import { MEDIA_BREAKPOINTS } from "@/config/media-queries";
+import { MEDIA_BREAKPOINTS } from "@config/media-queries";
 import { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
@@ -8,27 +8,24 @@ export interface IMediaProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const StyledMedia = styled.div<IMediaProps>`
-  --media-grid-gap: 24px;
-  --media-flex-gap: 40px;
-
-  @media ${MEDIA_BREAKPOINTS.sm} {
-    --media-flex-gap: 64px;
-  }
+  --media-gap: 24px;
+  --media-gap--md: 40px;
 
   display: flex;
   flex-direction: column;
 
   & > * + * {
-    margin-top: var(--media-flex-gap);
+    margin-top: var(--media-gap);
+  }
+
+  @media ${MEDIA_BREAKPOINTS.md} {
+    --media-gap: var(--media-gap--md);
   }
 
   @media ${MEDIA_BREAKPOINTS.lg} {
-    --media-grid-gap: 40px;
-    --media-flex-gap: 0px;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--media-grid-gap);
+    gap: var(--media-gap);
 
     ${({ layout }) =>
       layout === "reverse"

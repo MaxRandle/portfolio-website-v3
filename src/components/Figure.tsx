@@ -13,7 +13,6 @@ export const StyledFigure = styled.figure<Pick<IFigureProps, "radius" | "aspectR
   --figure-border-radius: 0rem;
   --figure-padding-bottom: 100%;
 
-  box-sizing: border-box;
   position: relative;
   overflow: hidden;
   border-radius: var(--figure-border-radius);

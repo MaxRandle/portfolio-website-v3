@@ -1,41 +1,33 @@
 import type { GetStaticProps, NextPage } from "next";
-import { Box } from "@/components/Box";
-import { Heading } from "@/components/Heading";
-import { Typography } from "@/components/Typography";
-import { PageLayout } from "@/layouts/PageLayout";
-import { ISectionProps, Section } from "@/layouts/Section";
-import { Media, MediaContent, MediaHeader, MediaMedia } from "@/layouts/media";
-import { IconButton } from "@/components/IconButton";
-
-import { DiGithubBadge } from "react-icons/di";
-import { FaLinkedinIn } from "react-icons/fa";
-
-import { CgFileDocument } from "react-icons/cg";
-import { GridReel, GridReelTrack, GridReelTrackItem } from "@/layouts/grid-reel";
-import { Figure } from "@/components/Figure";
-import homePageContent from "@/content/homePage";
-import { ProjectsList } from "@/layouts/ProjectsList";
-import { getAllProjectMetas, ProjectMeta } from "@/helpers/files";
+import { Box } from "@components/Box";
+import { Heading } from "@components/Heading";
+import { Typography } from "@components/Typography";
+import { PageLayout } from "@layouts/PageLayout";
+import { ISectionProps, Section } from "@layouts/Section";
+import { Media, MediaContent, MediaHeader, MediaMedia } from "@layouts/media";
+import { GridReel, GridReelTrack, GridReelTrackItem } from "@layouts/grid-reel";
+import { Figure } from "@components/Figure";
+import homePageContent from "@content/homePage";
+import { ProjectsList } from "@layouts/ProjectsList";
+import { getAllProjectMetas, ProjectMeta } from "@helpers/files";
 
 const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
   function Hero({ ...props }: ISectionProps) {
     return (
       <Section {...props}>
-        <div className="container">
-          <Box>
-            <Heading
-              className="text-center"
-              level={1}
-            >
-              {homePageContent.hero.heading}
-            </Heading>
-            <Typography
-              className="mt-4 lg:mt-6 text-center"
-              variant="subheading"
-            >
-              {homePageContent.hero.content}
-            </Typography>
-          </Box>
+        <div className="container mx-auto px-6">
+          <Heading
+            className="text-center"
+            level={1}
+          >
+            {homePageContent.hero.heading}
+          </Heading>
+          <Typography
+            className="mt-4 lg:mt-6 text-center"
+            variant="subheading"
+          >
+            {homePageContent.hero.content}
+          </Typography>
         </div>
       </Section>
     );
@@ -46,16 +38,17 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
       <Section {...props}>
         <div className="container">
           <Box
-            palette="secondary"
-            texture="rg2"
-            isResponsive
+            palette="base"
+            isRounded="md"
+            elevation={2}
           >
             <Media>
               <MediaHeader>
-                <Heading>{homePageContent.work.heading}</Heading>
+                <Heading level={2}>{homePageContent.work.heading}</Heading>
               </MediaHeader>
               <MediaMedia>
                 <Figure
+                  className="dark:opacity-80"
                   src={homePageContent.work.media}
                   alt="max"
                   radius="sm"
@@ -73,74 +66,38 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
 
   function Skills({ ...props }: ISectionProps) {
     return (
-      <Section {...props}>
-        <div className="container">
-          <Box className="grid gap-10 grid-cols-1 lg:grid-cols-2">
-            <div className="lg:col-span-2">
-              <Heading>{homePageContent.skills.heading}</Heading>
-            </div>
-            {homePageContent.skills.contentArray.map(({ name, description, IconComponent, iconColor }) => (
-              <div
-                className="flex"
-                key={name}
-              >
-                <IconComponent
-                  className="shrink-0 mr-6"
-                  color={iconColor}
-                  size={32}
-                />
-                <div>
-                  <Heading level={4}>{name}</Heading>
-                  <Typography
-                    className="mt-4"
-                    variant="body"
-                  >
-                    {description}
-                  </Typography>
-                </div>
-              </div>
-            ))}
-          </Box>
-        </div>
-      </Section>
-    );
-  }
-
-  function External({ ...props }: ISectionProps) {
-    return (
-      <Section {...props}>
-        <div className="container">
-          <Box
-            isResponsive
-            className="space-y-10"
+      <Section
+        palette="primary"
+        {...props}
+      >
+        <div className="container mx-auto px-6 grid gap-10 grid-cols-1 lg:grid-cols-2">
+          <Heading
+            className="lg:col-span-2"
+            level={2}
           >
-            <Heading
-              className="text-center"
-              level={2}
+            {homePageContent.skills.heading}
+          </Heading>
+          {homePageContent.skills.contentArray.map(({ name, description, IconComponent, iconColor }) => (
+            <div
+              className="flex"
+              key={name}
             >
-              {homePageContent.external.heading}
-            </Heading>
-            <div className="flex flex-col lg:flex-row space-y-10 lg:space-y-0">
-              <div className="basis-0 flex-grow flex lg:flex-col items-center">
-                <IconButton>
-                  <DiGithubBadge size={64} />
-                </IconButton>
-                <Heading className="ml-4 lg:ml-0 lg:mt-4">{homePageContent.external.links.github.title}</Heading>
-              </div>
-              <div className="basis-0 flex-grow flex lg:flex-col items-center">
-                <IconButton>
-                  <CgFileDocument size={56} />
-                </IconButton>
-                <Heading className="ml-4 lg:ml-0 lg:mt-4">{homePageContent.external.links.resume.title}</Heading>
-              </div>
-              <div className="basis-0 flex-grow flex lg:flex-col items-center">
-                <IconButton>
-                  <FaLinkedinIn size={48} />
-                </IconButton>
-                <Heading className="ml-4 lg:ml-0 lg:mt-4">{homePageContent.external.links.linkedIn.title}</Heading>
+              <IconComponent
+                className="shrink-0 mr-6"
+                color={iconColor}
+                size={32}
+              />
+              <div>
+                <Typography variant="subheading">{name}</Typography>
+                <Typography
+                  className="mt-4"
+                  variant="body"
+                >
+                  {description}
+                </Typography>
               </div>
             </div>
-          </Box>
+          ))}
         </div>
       </Section>
     );
@@ -153,10 +110,8 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
         className="space-y-6 lg:space-y-10"
         {...props}
       >
-        <div className="container space-y-4">
-          <Box>
-            <Heading>{homePageContent.hobbies.heading}</Heading>
-          </Box>
+        <div className="container mx-auto px-6 md:px-0">
+          <Heading level={2}>{homePageContent.hobbies.heading}</Heading>
         </div>
 
         <GridReel>
@@ -180,9 +135,8 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
               <GridReelTrackItem key={image.src}>
                 <Figure
                   src={image.src}
-                  alt="seal"
+                  alt={image.alt}
                   aspectRatio="5:3"
-                  className="bg-amber-500"
                   radius="sm"
                 >
                   <Typography variant="body">{image.description}</Typography>
@@ -202,10 +156,10 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
         {...props}
       >
         <div className="container">
-          <Box className="space-y-4 lg:space-y-6">
-            <Heading>{homePageContent.projects.heading}</Heading>
+          <div className="mx-6 md:mx-0">
+            <Heading level={2}>{homePageContent.projects.heading}</Heading>
             <Typography>{homePageContent.projects.content}</Typography>
-          </Box>
+          </div>
           <ProjectsList
             className="mt-6 lg:mt-10"
             projectMetas={projectMetas}
@@ -222,7 +176,6 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
       <Projects />
       <Skills />
       <Hobbies />
-      <External />
     </PageLayout>
   );
 };

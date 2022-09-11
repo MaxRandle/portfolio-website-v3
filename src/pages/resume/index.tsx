@@ -1,11 +1,10 @@
 import type { NextPage } from "next";
-import { PageLayout } from "@/layouts/PageLayout";
-import { Section } from "@/layouts/Section";
-import { Box } from "@/components/Box";
-import { Typography } from "@/components/Typography";
-import { Heading } from "@/components/Heading";
+import { PageLayout } from "@layouts/PageLayout";
+import { Section } from "@layouts/Section";
+import { Typography } from "@components/Typography";
+import { Heading } from "@components/Heading";
 import { FiGithub, FiGlobe, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
-import homePageContent from "@/content/homePage";
+import homePageContent from "@content/homePage";
 
 const EXPERIENCE_START_DATE = new Date("2018-06-23");
 const MS_IN_YEAR = 3.154e10;
@@ -34,80 +33,81 @@ const CONTENT = {
 const Home: NextPage = () => {
   function Hero() {
     return (
-      <Box className="space-y-4 lg:space-y-8">
-        <Heading level={1}>{CONTENT.name}</Heading>
-      </Box>
+      <Heading
+        className="px-6 md:px-0"
+        level={1}
+      >
+        {CONTENT.name}
+      </Heading>
     );
   }
 
   function ContactDetails() {
     return (
-      <Box className="space-y-4 lg:space-y-8">
-        <ul className="space-y-4 lg:space-y-0 lg:space-x-4 lg:flex lg:justify-between">
-          <li className="flex items-center">
-            <FiMail size={24} />
-            <Typography className="ml-6 lg:ml-4">
-              <a href={`mailto:${CONTENT.contactDetails.email}`}>{CONTENT.contactDetails.email}</a>
-            </Typography>
-          </li>
-          <li className="flex items-center">
-            <FiPhone size={24} />
-            <Typography className="ml-6 lg:ml-4">
-              <a href={`tel:${CONTENT.contactDetails.phone}`}>{CONTENT.contactDetails.phone}</a>
-            </Typography>
-          </li>
-          <li className="flex items-center">
-            <FiMapPin size={24} />
-            <Typography className="ml-6 lg:ml-4">{CONTENT.contactDetails.location}</Typography>
-          </li>
-          <li className="flex items-center">
-            <FiGlobe size={24} />
-            <Typography className="ml-6 lg:ml-4">
-              <a
-                href={`https://${CONTENT.contactDetails.website}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {CONTENT.contactDetails.website}
-              </a>
-            </Typography>
-          </li>
-          <li className="flex items-center">
-            <FiGithub size={24} />
-            <Typography className="ml-6 lg:ml-4">
-              <a
-                href={`https://${CONTENT.contactDetails.github}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {CONTENT.contactDetails.github}
-              </a>
-            </Typography>
-          </li>
-        </ul>
-      </Box>
+      <ul className="px-6 md:px-0 space-y-4">
+        <li className="flex items-center">
+          <FiMail size={24} />
+          <Typography className="ml-6 lg:ml-4">
+            <a href={`mailto:${CONTENT.contactDetails.email}`}>{CONTENT.contactDetails.email}</a>
+          </Typography>
+        </li>
+        <li className="flex items-center">
+          <FiPhone size={24} />
+          <Typography className="ml-6 lg:ml-4">
+            <a href={`tel:${CONTENT.contactDetails.phone}`}>{CONTENT.contactDetails.phone}</a>
+          </Typography>
+        </li>
+        <li className="flex items-center">
+          <FiMapPin size={24} />
+          <Typography className="ml-6 lg:ml-4">{CONTENT.contactDetails.location}</Typography>
+        </li>
+        <li className="flex items-center">
+          <FiGlobe size={24} />
+          <Typography className="ml-6 lg:ml-4">
+            <a
+              href={`https://${CONTENT.contactDetails.website}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {CONTENT.contactDetails.website}
+            </a>
+          </Typography>
+        </li>
+        <li className="flex items-center">
+          <FiGithub size={24} />
+          <Typography className="ml-6 lg:ml-4">
+            <a
+              href={`https://${CONTENT.contactDetails.github}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {CONTENT.contactDetails.github}
+            </a>
+          </Typography>
+        </li>
+      </ul>
     );
   }
 
   function Intro() {
     return (
-      <Box className="space-y-4 lg:space-y-8">
+      <div className="px-6 md:px-0 space-y-4 lg:space-y-8">
         <Heading level={2}>Personal statement</Heading>
         <Typography>{CONTENT.personalStatement.join(" ")}</Typography>
-      </Box>
+      </div>
     );
   }
 
   function Skills() {
     return (
-      <Box className="space-y-4 lg:space-y-8">
+      <div className="px-6 md:px-0 space-y-4 lg:space-y-8">
         <Heading level={2}>Skills</Heading>
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           {homePageContent.skills.contentArray.map((skill) => (
             <Typography key={skill.name}>{skill.name}</Typography>
           ))}
         </div>
-      </Box>
+      </div>
     );
   }
 
@@ -125,8 +125,8 @@ const Home: NextPage = () => {
           <Typography variant="subheading">{jobTitle}</Typography>
           <Typography>{companyName}</Typography>
           <Typography
-            variant="label"
-            palette="faded"
+            variant="caption"
+            palette="weak"
           >
             {dateRange}
           </Typography>
@@ -156,7 +156,7 @@ const Home: NextPage = () => {
     ];
 
     return (
-      <Box className="space-y-4 lg:space-y-8">
+      <div className="px-6 md:px-0 space-y-4 lg:space-y-8">
         <Heading level={2}>Work Experience</Heading>
         {WORKPLACES.map((workPlace) => (
           <WorkPlace
@@ -164,7 +164,7 @@ const Home: NextPage = () => {
             {...workPlace}
           />
         ))}
-      </Box>
+      </div>
     );
   }
 

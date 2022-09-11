@@ -1,12 +1,7 @@
-import { ReactNode } from "react";
 import styled from "styled-components";
 
-interface ICardContentProps extends React.HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode;
-}
+type CardContentProps = React.HTMLAttributes<HTMLDivElement>;
 
-const StyledCardContent = styled.div<ICardContentProps>``;
+const StyledCardContent = styled.div<CardContentProps>``;
 
-export const CardContent: React.FC<ICardContentProps> = ({ children, ...props }) => {
-  return <StyledCardContent {...props}>{children}</StyledCardContent>;
-};
+export const CardContent: React.FC<CardContentProps> = StyledCardContent;
