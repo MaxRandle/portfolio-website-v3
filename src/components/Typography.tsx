@@ -10,22 +10,26 @@ const StyledTypography = styled.p<TypographyProps>`
   font-size: var(--text-font-size);
   color: var(--typography-color);
   font-weight: var(--text-font-weight);
+  line-height: var(--text-line-height);
 
   ${({ variant }) =>
     variant === "subheading"
       ? css`
           --text-font-size: var(--text-font-size--subheading);
           --text-font-weight: var(--text-font-weight--subheading);
+          --text-line-height: var(--text-line-height--subheading);
         `
       : variant === "body"
       ? css`
           --text-font-size: var(--text-font-size--body);
           --text-font-weight: var(--text-font-weight--body);
+          --text-line-height: var(--text-line-height--body);
         `
       : variant === "caption"
       ? css`
           --text-font-size: var(--text-font-size--caption);
           --text-font-weight: var(--text-font-weight--caption);
+          --text-line-height: var(--text-line-height--caption);
         `
       : ""}
 

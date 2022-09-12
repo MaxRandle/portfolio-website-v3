@@ -208,10 +208,10 @@ h6 {
   /* ----------------------------------------------------------------------- */
   /* MISC THEME */
   /* ----------------------------------------------------------------------- */
-  --box-shadow--point-source: 0.125rem 0.25rem 0.75rem 0.125rem rgba(0, 0, 0, 0.08);
-  --box-shadow--ambient:  0rem 0rem 4rem 0rem rgba(0, 0, 0, 0.20);
-  --box-shadow--high-glow: 0rem 0rem 4rem 0rem rgba(255, 255, 255, 0.12);
-  --box-shadow--low-glow: 0rem 0rem 1rem 0rem rgba(255, 255, 255, 0.12);
+  --box-shadow--point-source: 0.125rem 0.25rem 0.5rem 0rem rgba(0, 0, 0, 0.08);
+  --box-shadow--ambient:  0rem 0rem 4rem -0.5rem rgba(0, 0, 0, 0.16);
+  --box-shadow--high-glow: 0rem 0rem 4rem -0.5rem rgba(255, 255, 255, 0.08);
+  --box-shadow--low-glow: 0rem 0rem 1rem -0.125rem rgba(255, 255, 255, 0.08);
 
 
   /* ----------------------------------------------------------------------- */
@@ -241,6 +241,7 @@ h6 {
   --text-font-weight--h2: var(--font-weight--500);
   --text-font-weight--h1: var(--font-weight--400);
 
+  
   @media ${MEDIA_BREAKPOINTS.md} {
     --text-font-size--caption: var(--font-size--sm);
     --text-font-size--body: var(--font-size--lg);
@@ -248,7 +249,7 @@ h6 {
     --text-font-size--h3: var(--font-size--3xl);
     --text-font-size--h2: var(--font-size--5xl);
     --text-font-size--h1: var(--font-size--7xl);
-
+    
     --text-font-weight--caption: var(--font-weight--500);
     --text-font-weight--body: var(--font-weight--400);
     --text-font-weight--subheading: var(--font-weight--500);
@@ -256,6 +257,13 @@ h6 {
     --text-font-weight--h2: var(--font-weight--500);
     --text-font-weight--h1: var(--font-weight--400);
   }
+  
+  --text-line-height--caption: 1.5;
+  --text-line-height--body: 1.5;
+  --text-line-height--subheading: 1.4;
+  --text-line-height--h3: 1.3;
+  --text-line-height--h2: 1.2;
+  --text-line-height--h1: 1.1;
 
   --text-font-weight--link: var(--font-weight--700);
   --text-font-weight--button: var(--font-weight--700);
@@ -291,14 +299,14 @@ h6 {
 
   /* border */
 
-  --border-color--weak: var(--base-300);
-  --border-color--base: var(--base-400);
-  --border-color--hover: var(--base-600);
+  --border-color--weak: var(--base-200);
+  --border-color--base: var(--base-300);
+  --border-color--hover: var(--base-500);
 
   @media (prefers-color-scheme: dark) {
-    --border-color--weak: var(--base-600);
-    --border-color--base: var(--base-500);
-    --border-color--hover: var(--base-300);
+    --border-color--weak: var(--base-700);
+    --border-color--base: var(--base-600);
+    --border-color--hover: var(--base-400);
   }
 
   /* input */

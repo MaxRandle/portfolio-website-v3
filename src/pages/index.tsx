@@ -10,6 +10,9 @@ import { Figure } from "@components/Figure";
 import homePageContent from "@content/homePage";
 import { ProjectsList } from "@layouts/ProjectsList";
 import { getAllProjectMetas, ProjectMeta } from "@helpers/files";
+import { Button } from "@components/Button";
+import { ROUTES } from "@config/ROUTES";
+import { FiArrowRight } from "react-icons/fi";
 
 const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
   function Hero({ ...props }: ISectionProps) {
@@ -23,8 +26,9 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
             {homePageContent.hero.heading}
           </Heading>
           <Typography
-            className="mt-4 lg:mt-6 text-center"
+            className="mt-4 lg:mt-6 text-center mx-auto max-w-3xl"
             variant="subheading"
+            palette="weak"
           >
             {homePageContent.hero.content}
           </Typography>
@@ -38,7 +42,6 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
       <Section {...props}>
         <div className="container">
           <Box
-            palette="base"
             isRounded="md"
             elevation={2}
           >
@@ -55,7 +58,15 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
                 />
               </MediaMedia>
               <MediaContent>
-                <Typography>{homePageContent.work.content}</Typography>
+                <Typography palette="weak">{homePageContent.work.content}</Typography>
+                <Button
+                  className="mt-4 md:mt-8"
+                  variant="inline"
+                  href={ROUTES.resume.root}
+                  IconRight={() => <FiArrowRight size={24} />}
+                >
+                  {`Resume`}
+                </Button>
               </MediaContent>
             </Media>
           </Box>
@@ -91,7 +102,7 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
                 <Typography variant="subheading">{name}</Typography>
                 <Typography
                   className="mt-4"
-                  variant="body"
+                  palette="weak"
                 >
                   {description}
                 </Typography>
@@ -158,7 +169,12 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
         <div className="container">
           <div className="mx-6 md:mx-0">
             <Heading level={2}>{homePageContent.projects.heading}</Heading>
-            <Typography>{homePageContent.projects.content}</Typography>
+            <Typography
+              className="mt-6 max-w-lg"
+              palette="weak"
+            >
+              {homePageContent.projects.content}
+            </Typography>
           </div>
           <ProjectsList
             className="mt-6 lg:mt-10"

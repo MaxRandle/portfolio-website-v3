@@ -6,21 +6,29 @@ export interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> 
 }
 
 const StyledHeading = styled.h3<IHeadingProps>`
-  font-size: var(--text-font-size);
+  font-size: var(--heading-font-size);
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
   color: var(--heading-color);
 
   ${({ level }) =>
     level === 1
       ? css`
-          --text-font-size: var(--text-font-size--h1);
+          --heading-font-size: var(--text-font-size--h1);
+          --heading-font-weight: var(--text-font-weight--h1);
+          --heading-line-height: var(--text-line-height--h1);
         `
       : level === 2
       ? css`
-          --text-font-size: var(--text-font-size--h2);
+          --heading-font-size: var(--text-font-size--h2);
+          --heading-font-weight: var(--text-font-weight--h2);
+          --heading-line-height: var(--text-line-height--h2);
         `
       : level === 3
       ? css`
-          --text-font-size: var(--text-font-size--h3);
+          --heading-font-size: var(--text-font-size--h3);
+          --heading-font-weight: var(--text-font-weight--h3);
+          --heading-line-height: var(--text-line-height--h3);
         `
       : ""}
 
