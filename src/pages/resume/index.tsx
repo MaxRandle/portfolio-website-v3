@@ -5,6 +5,7 @@ import { Typography } from "@components/Typography";
 import { Heading } from "@components/Heading";
 import { FiGithub, FiGlobe, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import homePageContent from "@content/homePage";
+import { Divider } from "@components/Divider";
 
 const EXPERIENCE_START_DATE = new Date("2018-06-23");
 const MS_IN_YEAR = 3.154e10;
@@ -93,7 +94,12 @@ const Home: NextPage = () => {
     return (
       <div className="px-6 md:px-0 space-y-4 lg:space-y-8">
         <Heading level={2}>Personal statement</Heading>
-        <Typography>{CONTENT.personalStatement.join(" ")}</Typography>
+        <div className="space-y-4">
+          {CONTENT.personalStatement.map((paragraph, idx) => (
+            <Typography key={idx}>{paragraph}</Typography>
+          ))}
+        </div>
+        {/* <Typography>{CONTENT.personalStatement.join(" ")}</Typography> */}
       </div>
     );
   }
@@ -114,25 +120,45 @@ const Home: NextPage = () => {
   function Experience() {
     interface IWorkPlaceProps {
       jobTitle: string;
+      coreTech: string;
       dateRange: string;
       companyName?: string;
       responsibilities?: string[];
     }
 
-    const WorkPlace = ({ jobTitle, dateRange, companyName, responsibilities, ...props }: IWorkPlaceProps) => {
+    const WorkPlace = ({ jobTitle, coreTech, dateRange, companyName, responsibilities, ...props }: IWorkPlaceProps) => {
       return (
         <div {...props}>
-          <Typography variant="subheading">{jobTitle}</Typography>
-          <Typography>{companyName}</Typography>
+          {/* <Typography variant="subheading">{jobTitle}</Typography> */}
+          <Heading level={3}>{jobTitle}</Heading>
+          <Typography
+            variant="caption"
+            palette="weak"
+          >
+            {coreTech}
+          </Typography>
+          <Divider className="mt-2" />
+          <Typography className="mt-2">{companyName}</Typography>
           <Typography
             variant="caption"
             palette="weak"
           >
             {dateRange}
           </Typography>
-          <ul className="space-y-4">
+          <ul className="mt-2 space-y-2">
             {responsibilities?.map((responsibility) => (
-              <li key={responsibility}>{responsibility}</li>
+              <li
+                key={responsibility}
+                className="flex space-x-2 md:space-x-4"
+              >
+                <Typography
+                  palette="weak"
+                  className="md:ml-4"
+                >
+                  •
+                </Typography>
+                <Typography>{responsibility}</Typography>
+              </li>
             ))}
           </ul>
         </div>
@@ -142,16 +168,42 @@ const Home: NextPage = () => {
     const WORKPLACES: IWorkPlaceProps[] = [
       {
         jobTitle: "Front End Software Engineer",
+        coreTech: "TypeScript / React / Next.js",
         dateRange: "March 2022 - present",
         companyName: "Kernel Wealth",
         responsibilities: [
-          "Built functional web apps with TypeScript/React/Next ",
-          "Built static marketing pages with dynamic content served from a CMS.",
+          "Built static marketing pages with dynamic content served from a CMS. Content kept up to date using Next.js.js Incremental Static Regeneration capabilities",
           "Setup end to end testing capabilities to run as a build step in bitbucket.",
-          "Precisely implement figma designs into clean, accessible, context agnostic, functional react components with multiple states and variants using Sass with styled-components and a BEM-inspired style system.",
-          "Quickly mocked up and prototyped pages and form flows using TailwindCSS to handle layout.",
-          "Set new software patterns that demonstrate flexibility, scalability, and maintainability",
+          "Precisely implement figma designs into clean, accessible, context agnostic, functional React components with multiple states and variants using Sass with styled-components and a BEM-inspired style system.",
+          "Quickly mocked up and prototyped pages using TailwindCSS to handle layout.",
+          "Set new software patterns that demonstrate flexibility, scalability, and maintainability. EG: building conditional and branching user form flows.",
+          "Working closely with product to design and implement",
         ],
+      },
+      {
+        jobTitle: "Full Stack Software Engineer",
+        coreTech: "React / Next.js / Node / Express / MongoDB",
+        dateRange: "August 2021 - Nov 2021",
+        companyName: "Renti Ltd",
+        responsibilities: [
+          "Transforming designs into functional React components, setting up Next.js pages with SSR, building user flows with forms and other functional elements.",
+          "Designing and building database schemas, serverside endpoint routing, and writing resolvers.",
+          "Sprint planning, story pointing, elabourating work, scoping MVP for new features.",
+        ],
+      },
+      {
+        jobTitle: "Full Stack & Automation Developer",
+        coreTech: "React / UiPath / .NET Core",
+        dateRange: "October 2020 - August 2021",
+        companyName: "Quanton Ltd",
+        responsibilities: [],
+      },
+      {
+        jobTitle: "Front End & Automation Developer",
+        coreTech: "React / UiPath / .NET Core",
+        dateRange: "July 2018 - September 2020",
+        companyName: "Probity Consulting",
+        responsibilities: [],
       },
     ];
 
@@ -171,7 +223,7 @@ const Home: NextPage = () => {
   return (
     <PageLayout>
       <Section>
-        <div className="container space-y-6 lg:space-y-12">
+        <div className="container space-y-8 lg:space-y-12">
           <Hero />
           <ContactDetails />
           <Intro />

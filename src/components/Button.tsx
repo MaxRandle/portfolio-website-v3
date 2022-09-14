@@ -29,7 +29,7 @@ const StyledButton = styled.button<ButtonProps>`
   padding-right: 0.25rem;
 
   & > * + * {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
   }
 
   ${({ variant }) =>
