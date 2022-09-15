@@ -367,12 +367,14 @@ h6 {
 
   --surface-bg--base: var(--base-50);
   --surface-bg--raised: var(--base-100);
+  --surface-bg--hover: var(--base-200);
   --surface-bg--primary: var(--primary-100);
   
   @media (prefers-color-scheme: dark) {
-      --surface-bg--base: var(--base-900);
-      --surface-bg--raised: var(--base-800);
-      --surface-bg--primary: var(--primary-900);
+    --surface-bg--base: var(--base-900);
+    --surface-bg--raised: var(--base-800);
+    --surface-bg--hover: var(--base-700);
+    --surface-bg--primary: var(--primary-900);
   }
 
   /* ----------------------------------------------------------------------- */

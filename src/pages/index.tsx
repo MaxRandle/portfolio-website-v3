@@ -121,9 +121,12 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
         className="space-y-6 lg:space-y-10"
         {...props}
       >
-        <div className="container mx-auto px-6 md:px-0">
-          <Heading level={2}>{homePageContent.hobbies.heading}</Heading>
-        </div>
+        <Heading
+          className="container mx-auto px-6"
+          level={2}
+        >
+          {homePageContent.hobbies.heading}
+        </Heading>
 
         <GridReel>
           <GridReelTrack>
