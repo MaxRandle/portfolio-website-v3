@@ -16,7 +16,6 @@ export const ProjectsList: React.FC<ProjectListProps> = ({ projectMetas, classNa
   const isInView = useInView(rootRef);
 
   useEffect(() => {
-    console.log(isInView);
     if (isInView) controls.start("visible");
     if (!isInView) controls.start("hidden");
   }, [isInView, controls]);
