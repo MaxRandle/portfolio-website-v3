@@ -11,11 +11,14 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement | HTMLAnchorElem
 
 const StyledCard = styled.div<CardProps>`
   --card-padding: 16px;
+
   --card-border-radius: 0;
   --card-border-radius--rounded: var(--border-radius--surface);
   --card-border-width: 1px 0px;
-  --card-bg: var(--surface-bg--raised);
   --card-border: 1px solid var(--border-color--base);
+
+  --card-bg: var(--surface-bg--raised);
+  --card-bg--hover: var(--surface-bg--hover);
 
   border-radius: var(--card-border-radius);
   background: var(--card-bg);
@@ -23,7 +26,7 @@ const StyledCard = styled.div<CardProps>`
   border-width: var(--card-border-width);
   color: var(--body-color);
 
-  transition: box-shadow 0.15s;
+  transition: box-shadow 0.15s, background-color 0.15s;
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
@@ -57,6 +60,7 @@ const StyledCard = styled.div<CardProps>`
           &:focus-visible {
             box-shadow: var(--shadows--hover);
             --card-border: 1px solid var(--border-color--hover);
+            --card-bg: var(--card-bg--hover);
           }
         `
       : ""}
