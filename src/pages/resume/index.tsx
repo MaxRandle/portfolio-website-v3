@@ -3,8 +3,9 @@ import { PageLayout } from "@layouts/PageLayout";
 import { Section } from "@layouts/Section";
 import { Typography } from "@components/Typography";
 import { Heading } from "@components/Heading";
-import { FiGithub, FiGlobe, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import homePageContent from "@content/homePage";
+import { Link } from "@components/Link";
 
 const EXPERIENCE_START_DATE = new Date("2018-06-23");
 const MS_IN_YEAR = 3.154e10;
@@ -18,6 +19,7 @@ const CONTENT = {
     location: "Auckland, NZ",
     website: "maxrandle.co.nz",
     github: "github.com/MaxRandle",
+    linkedIn: "in/max-randle-a79760160",
   },
   personalStatement: [
     `I am an intermediate-level software engineer with ${EXPERIENCE_IN_YEARS} years of professional experience delivering robust digital solutions using modern tools. I am primarily skilled at creating seamless user interfaces for functional web applications.`,
@@ -44,17 +46,17 @@ const Home: NextPage = () => {
 
   function ContactDetails() {
     return (
-      <ul className="px-6 md:px-0 space-y-4">
+      <ul className="px-6 md:px-0 grid grid-cols-2 gap-4">
         <li className="flex items-center">
           <FiMail size={24} />
           <Typography className="ml-6 lg:ml-4">
-            <a href={`mailto:${CONTENT.contactDetails.email}`}>{CONTENT.contactDetails.email}</a>
+            <Link href={`mailto:${CONTENT.contactDetails.email}`}>{CONTENT.contactDetails.email}</Link>
           </Typography>
         </li>
         <li className="flex items-center">
           <FiPhone size={24} />
           <Typography className="ml-6 lg:ml-4">
-            <a href={`tel:${CONTENT.contactDetails.phone}`}>{CONTENT.contactDetails.phone}</a>
+            <Link href={`tel:${CONTENT.contactDetails.phone}`}>{CONTENT.contactDetails.phone}</Link>
           </Typography>
         </li>
         <li className="flex items-center">
@@ -64,25 +66,34 @@ const Home: NextPage = () => {
         <li className="flex items-center">
           <FiGlobe size={24} />
           <Typography className="ml-6 lg:ml-4">
-            <a
+            <Link
               href={`https://${CONTENT.contactDetails.website}`}
-              target="_blank"
-              rel="noreferrer"
+              isExternal
             >
               {CONTENT.contactDetails.website}
-            </a>
+            </Link>
           </Typography>
         </li>
         <li className="flex items-center">
           <FiGithub size={24} />
           <Typography className="ml-6 lg:ml-4">
-            <a
+            <Link
               href={`https://${CONTENT.contactDetails.github}`}
-              target="_blank"
-              rel="noreferrer"
+              isExternal
             >
               {CONTENT.contactDetails.github}
-            </a>
+            </Link>
+          </Typography>
+        </li>
+        <li className="flex items-center">
+          <FiLinkedin size={24} />
+          <Typography className="ml-6 lg:ml-4">
+            <Link
+              href={`https://www.linkedin.com/${CONTENT.contactDetails.linkedIn}`}
+              isExternal
+            >
+              {CONTENT.contactDetails.linkedIn}
+            </Link>
           </Typography>
         </li>
       </ul>
