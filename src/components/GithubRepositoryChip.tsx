@@ -13,13 +13,28 @@ const StyledAnchor = styled.a`
   color: white;
   padding: 12px 20px;
 
-  border-radius: calc((1rem + 12px));
+  border-radius: 9999px;
   display: inline-flex;
   align-items: center;
+
+  max-width: 272px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   & > * + * {
     margin-left: 0.5rem;
   }
+
+  & > svg {
+    flex-shrink: 0;
+  }
+`;
+
+const TruncatedText = styled.p`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 export const GithubRepositoryChip: React.FC<IGithubRepositoryChipProps> = ({ repo, ...props }) => {
@@ -43,9 +58,9 @@ export const GithubRepositoryChip: React.FC<IGithubRepositoryChipProps> = ({ rep
       {...props}
     >
       <SiGithub />
-      <Typography>{repo}</Typography>
+      <TruncatedText>{repo}</TruncatedText>
       <BsFillStarFill color="gold" />
-      <Typography>{stargazersCount}</Typography>
+      <p>{stargazersCount}</p>
     </StyledAnchor>
   );
 };
