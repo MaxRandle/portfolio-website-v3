@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 import { useBreakpoint } from "@hooks/useBreakpoint";
 import { Heading } from "@components/Heading";
 import { Divider } from "@components/Divider";
+import { ROUTES } from "@config/ROUTES";
 
 interface ProjectListProps {
   projectMetas: ProjectMeta[];
@@ -77,7 +78,7 @@ export const ProjectsList: React.FC<ProjectListProps> = ({ projectMetas, classNa
               isRounded="md"
               isBordered={screen_md}
               key={meta.slug}
-              href={`/projects/${meta.slug}`}
+              href={ROUTES.projects.slug(meta.slug)}
             >
               <CardMedia>
                 <Figure

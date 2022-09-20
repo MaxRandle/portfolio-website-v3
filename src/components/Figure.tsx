@@ -48,7 +48,7 @@ export const StyledFigure = styled.figure<Pick<IFigureProps, "isRounded" | "isCi
       : ""}
 `;
 
-// TODO replace img with Next/Image
+// @TODO replace img with Next/Image
 
 const StyledImage = styled.img`
   position: absolute;
