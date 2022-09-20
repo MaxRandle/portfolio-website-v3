@@ -54,7 +54,7 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
                   className="dark:opacity-80"
                   src={homePageContent.work.media}
                   alt="max"
-                  radius="sm"
+                  isRounded
                 />
               </MediaMedia>
               <MediaContent>
@@ -136,7 +136,7 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
                   src={image.src}
                   alt={image.alt}
                   aspectRatio="5:3"
-                  radius="sm"
+                  isRounded
                 >
                   {image.description}
                 </Figure>
@@ -151,7 +151,7 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
                   src={image.src}
                   alt={image.alt}
                   aspectRatio="5:3"
-                  radius="sm"
+                  isRounded
                 >
                   <Typography variant="body">{image.description}</Typography>
                 </Figure>

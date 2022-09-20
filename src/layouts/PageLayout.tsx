@@ -11,6 +11,7 @@ const StyledPage = styled.div<IPageProps>`
   min-height: 100vh;
   position: relative;
   padding-bottom: 16rem;
+  overflow: hidden;
 `;
 
 export const PageLayout: React.FC<IPageProps> = ({ children }) => {

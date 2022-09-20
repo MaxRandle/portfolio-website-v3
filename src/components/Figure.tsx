@@ -4,24 +4,35 @@ import styled, { css } from "styled-components";
 interface IFigureProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string;
   alt: string;
-  radius?: "sm";
+  isRounded?: boolean;
+  isCircular?: boolean;
   aspectRatio?: "1:1" | "5:3";
   children?: ReactNode;
 }
 
-export const StyledFigure = styled.figure<Pick<IFigureProps, "radius" | "aspectRatio">>`
-  --figure-border-radius: 0rem;
+export const StyledFigure = styled.figure<Pick<IFigureProps, "isRounded" | "isCircular" | "aspectRatio">>`
+  --figure-border-radius: 0;
+  --figure-border-radius--rounded: var(--border-radius--surface);
+
   --figure-padding-bottom: 100%;
 
   position: relative;
   overflow: hidden;
   border-radius: var(--figure-border-radius);
   padding-bottom: var(--figure-padding-bottom);
+  background-color: var(--surface-bg--primary);
 
-  ${({ radius }) =>
-    radius === "sm"
+  ${({ isRounded }) =>
+    isRounded
       ? css`
-          --figure-border-radius: 1rem;
+          --figure-border-radius: var(--figure-border-radius--rounded);
+        `
+      : ""}
+
+  ${({ isCircular }) =>
+    isCircular
+      ? css`
+          --figure-border-radius--rounded: 9999px;
         `
       : ""}
 
@@ -70,7 +81,7 @@ const StyledOverlay = styled.div`
   }
 `;
 
-export const Figure: React.FC<IFigureProps> = ({ className, src, alt, radius, aspectRatio = "1:1", children, ...props }: IFigureProps) => {
+export const Figure: React.FC<IFigureProps> = ({ src, alt, aspectRatio = "1:1", children, ...props }: IFigureProps) => {
   const kitten = {
     "1:1": "http://placekitten.com/200/200",
     "5:3": "http://placekitten.com/250/150",
@@ -78,8 +89,6 @@ export const Figure: React.FC<IFigureProps> = ({ className, src, alt, radius, as
 
   return (
     <StyledFigure
-      className={className}
-      radius={radius}
       aspectRatio={aspectRatio}
       {...props}
     >
