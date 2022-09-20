@@ -30,6 +30,8 @@ const StyledMedia = styled.div<IMediaProps>`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--media-grid-gap);
+    align-items: center;
+    justify-content: center;
 
     ${({ layout }) =>
       layout === "reverse"

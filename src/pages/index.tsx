@@ -49,12 +49,13 @@ const Home: NextPage<{ projectMetas: ProjectMeta[] }> = ({ projectMetas }) => {
               <MediaHeader>
                 <Heading level={2}>{homePageContent.work.heading}</Heading>
               </MediaHeader>
-              <MediaMedia>
+              <MediaMedia className="w-60 h-60 mx-auto">
                 <Figure
                   className="dark:opacity-80"
                   src={homePageContent.work.media}
                   alt="max"
                   isRounded
+                  isCircular
                 />
               </MediaMedia>
               <MediaContent>

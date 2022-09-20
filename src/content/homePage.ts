@@ -10,7 +10,7 @@ const homePageContent = {
     heading: "My work",
     content:
       "I am an intermediate level front end software engineer, with a passion for creating fast, responsive, seamless, and accessible web applications. I value readability, consistency, simplicity, and agnosticism as the core paradigms of my coding mantra. In my current role I embrace these values to write professional grade react components at a very high standard.",
-    media: "media/max.jpg",
+    media: "media/max-crop.jpg",
   },
   skills: {
     heading: "My skills",
