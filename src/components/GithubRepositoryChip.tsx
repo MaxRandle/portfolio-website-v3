@@ -1,7 +1,6 @@
 import { SiGithub } from "react-icons/si";
 import { BsFillStarFill } from "react-icons/bs";
 import styled from "styled-components";
-import { Typography } from "./Typography";
 import { useEffect, useState } from "react";
 
 interface IGithubRepositoryChipProps extends React.HTMLAttributes<HTMLAnchorElement> {
