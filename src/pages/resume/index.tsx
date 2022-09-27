@@ -47,25 +47,37 @@ const Home: NextPage = () => {
 
   function ContactDetails() {
     return (
-      <ul className="px-6 md:px-0 grid grid-cols-2 gap-4">
+      <ul className="px-6 md:px-0 gap-4 flex flex-col md:grid md:grid-cols-2">
         <li className="flex items-center">
-          <FiMail size={24} />
+          <FiMail
+            className="shrink-0"
+            size={24}
+          />
           <Typography className="ml-6 lg:ml-4">
             <Link href={`mailto:${CONTENT.contactDetails.email}`}>{CONTENT.contactDetails.email}</Link>
           </Typography>
         </li>
         <li className="flex items-center">
-          <FiPhone size={24} />
+          <FiPhone
+            className="shrink-0"
+            size={24}
+          />
           <Typography className="ml-6 lg:ml-4">
             <Link href={`tel:${CONTENT.contactDetails.phone}`}>{CONTENT.contactDetails.phone}</Link>
           </Typography>
         </li>
         <li className="flex items-center">
-          <FiMapPin size={24} />
+          <FiMapPin
+            className="shrink-0"
+            size={24}
+          />
           <Typography className="ml-6 lg:ml-4">{CONTENT.contactDetails.location}</Typography>
         </li>
         <li className="flex items-center">
-          <FiGlobe size={24} />
+          <FiGlobe
+            className="shrink-0"
+            size={24}
+          />
           <Typography className="ml-6 lg:ml-4">
             <Link
               href={`https://${CONTENT.contactDetails.website}`}
@@ -76,7 +88,10 @@ const Home: NextPage = () => {
           </Typography>
         </li>
         <li className="flex items-center">
-          <FiGithub size={24} />
+          <FiGithub
+            className="shrink-0"
+            size={24}
+          />
           <Typography className="ml-6 lg:ml-4">
             <Link
               href={`https://${CONTENT.contactDetails.github}`}
@@ -87,7 +102,10 @@ const Home: NextPage = () => {
           </Typography>
         </li>
         <li className="flex items-center">
-          <FiLinkedin size={24} />
+          <FiLinkedin
+            className="shrink-0"
+            size={24}
+          />
           <Typography className="ml-6 lg:ml-4">
             <Link
               href={`https://www.linkedin.com/${CONTENT.contactDetails.linkedIn}`}
@@ -140,7 +158,6 @@ const Home: NextPage = () => {
     const WorkPlace = ({ jobTitle, coreTech, dateRange, companyName, responsibilities, ...props }: IWorkPlaceProps) => {
       return (
         <div {...props}>
-          {/* <Typography variant="subheading">{jobTitle}</Typography> */}
           <Heading level={3}>{jobTitle}</Heading>
           <Typography
             variant="caption"
@@ -183,12 +200,13 @@ const Home: NextPage = () => {
         dateRange: "March 2022 - present",
         companyName: "Kernel Wealth",
         responsibilities: [
-          "Built static marketing pages with dynamic content served from a CMS. Content kept up to date using Next.js.js Incremental Static Regeneration capabilities",
-          "Setup end to end testing capabilities to run as a build step in bitbucket.",
+          "Built static marketing pages with dynamic content served from a CMS. Content kept up to date using Next.js Incremental Static Regeneration.",
+          "Writing end to end tests and configuring bitbucket pipeline to run them as a build step.",
           "Precisely implement figma designs into clean, accessible, context agnostic, functional React components with multiple states and variants using Sass with styled-components and a BEM-inspired style system.",
           "Quickly mocked up and prototyped pages using TailwindCSS to handle layout.",
           "Set new software patterns that demonstrate flexibility, scalability, and maintainability. EG: building conditional and branching user form flows.",
-          "Working closely with product to design and implement",
+          "Worked with product to finalise designs for upcoming features and raise engineering considerations.",
+          "Developed A/B testing capabilities to assist with gathering user metrics and conversion rates.",
         ],
       },
       {
@@ -198,15 +216,15 @@ const Home: NextPage = () => {
         companyName: "Renti Ltd",
         responsibilities: [
           "Transforming designs into functional React components, setting up Next.js pages with SSR, building user flows with forms and other functional elements.",
-          "Designing and building database schemas, serverside endpoint routing, and writing resolvers.",
-          "Sprint planning, story pointing, elabourating work, scoping MVP for new features.",
+          "Designing and building database schemas, server side endpoint routing, and writing resolvers.",
+          "Sprint planning, story pointing, elaborating work, scoping MVP for new features.",
         ],
       },
       {
         jobTitle: "Full Stack & Automation Developer",
         coreTech: "React / UiPath / .NET Core",
         dateRange: "October 2020 - August 2021",
-        companyName: "Quanton Ltd",
+        companyName: "Quanton Ltd (business acquisition of Probity)",
         responsibilities: [],
       },
       {

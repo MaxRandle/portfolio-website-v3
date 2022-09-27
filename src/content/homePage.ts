@@ -17,7 +17,8 @@ const homePageContent = {
     contentArray: [
       {
         name: "TypeScript",
-        description: "TypeScript is great, I'm sold, I can never go back, if you're still writing JavaScript... like... what.",
+        description:
+          "Once you go TypeScript you never go back. if you're still writing JavaScript it's time to take the leap. I guarantee you will become a better developer.",
         IconComponent: SiTypescript,
         iconColor: "#4476c0",
       },
@@ -128,7 +129,6 @@ const homePageContent = {
         description: "Her name is Tabitha and she is very entitled.",
       },
     ],
-    contentArray: [],
   },
   projects: {
     heading: "My Projects",
