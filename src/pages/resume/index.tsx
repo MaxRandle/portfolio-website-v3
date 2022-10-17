@@ -128,7 +128,6 @@ const Home: NextPage = () => {
             <Typography key={idx}>{paragraph}</Typography>
           ))}
         </div>
-        {/* <Typography>{CONTENT.personalStatement.join(" ")}</Typography> */}
       </div>
     );
   }
@@ -200,13 +199,14 @@ const Home: NextPage = () => {
         dateRange: "March 2022 - present",
         companyName: "Kernel Wealth",
         responsibilities: [
-          "Built static marketing pages with dynamic content served from a CMS. Content kept up to date using Next.js Incremental Static Regeneration.",
-          "Writing end to end tests and configuring bitbucket pipeline to run them as a build step.",
-          "Precisely implement figma designs into clean, accessible, context agnostic, functional React components with multiple states and variants using Sass with styled-components and a BEM-inspired style system.",
+          "Built static marketing pages with dynamic content served from a headless CMS. Content kept up to date using Next.js Incremental Static Regeneration.",
+          "Wrote end to end tests and configured bitbucket pipeline to run them as a build step.",
+          "Precisely implemented designs into clean, accessible, context agnostic React components with multiple states and variants using Sass with styled-components and a BEM-inspired style system.",
           "Quickly mocked up and prototyped pages using TailwindCSS to handle layout.",
           "Set new software patterns that demonstrate flexibility, scalability, and maintainability. EG: building conditional and branching user form flows.",
           "Worked with product to finalise designs for upcoming features and raise engineering considerations.",
           "Developed A/B testing capabilities to assist with gathering user metrics and conversion rates.",
+          "Integrated Analytics tools into our front-end.",
         ],
       },
       {
@@ -215,8 +215,8 @@ const Home: NextPage = () => {
         dateRange: "August 2021 - Nov 2021",
         companyName: "Renti Ltd",
         responsibilities: [
-          "Transforming designs into functional React components, setting up Next.js pages with SSR, building user flows with forms and other functional elements.",
-          "Designing and building database schemas, server side endpoint routing, and writing resolvers.",
+          "Transformed designs into functional React components, setting up Next.js pages with SSR, building user flows with forms and other functional elements.",
+          "Designed and built database schemas, server side endpoint routing, and writing resolvers.",
           "Sprint planning, story pointing, elaborating work, scoping MVP for new features.",
         ],
       },
