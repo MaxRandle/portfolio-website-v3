@@ -3,7 +3,7 @@ import { PageLayout } from "@layouts/PageLayout";
 import { Section } from "@layouts/Section";
 import { Typography } from "@components/Typography";
 import { Heading } from "@components/Heading";
-import { FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin } from "react-icons/fi";
 import homePageContent from "@content/homePage";
 import { Link } from "@components/Link";
 import { Divider } from "@components/Divider";
@@ -16,7 +16,6 @@ const CONTENT = {
   name: "Max Randle",
   contactDetails: {
     email: "maxrandle95@gmail.com",
-    phone: "+64 21 023 069 08",
     location: "Auckland, NZ",
     website: "maxrandle.co.nz",
     github: "github.com/MaxRandle",
@@ -55,15 +54,6 @@ const Home: NextPage = () => {
           />
           <Typography className="ml-6 lg:ml-4">
             <Link href={`mailto:${CONTENT.contactDetails.email}`}>{CONTENT.contactDetails.email}</Link>
-          </Typography>
-        </li>
-        <li className="flex items-center">
-          <FiPhone
-            className="shrink-0"
-            size={24}
-          />
-          <Typography className="ml-6 lg:ml-4">
-            <Link href={`tel:${CONTENT.contactDetails.phone}`}>{CONTENT.contactDetails.phone}</Link>
           </Typography>
         </li>
         <li className="flex items-center">
