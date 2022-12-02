@@ -28,7 +28,7 @@ const StyledCard = styled.div<CardProps>`
   border-width: var(--card-border-width);
   color: var(--body-color);
 
-  transition: box-shadow 0.15s, background-color 0.15s;
+  transition: box-shadow 0.15s, background-color 0.15s, border-color 0.15s;
   box-sizing: border-box;
   overflow: hidden;
 

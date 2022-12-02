@@ -6,16 +6,17 @@ export type LinkProps = Omit<NextLinkProps, "as"> & {
   isExternal?: boolean;
 };
 
-const StyledLinkInner = styled.a`
+const StyledNextLink = styled(NextLink)`
   font-weight: var(--text-font-weight--link);
   color: var(--text-color--primary);
 `;
 
 export const Link: React.FC<LinkProps> = ({ isExternal, children, ...props }) => (
-  <NextLink
+  <StyledNextLink
     passHref
+    target={isExternal ? "_blank" : "_self"}
     {...props}
   >
-    <StyledLinkInner target={isExternal ? "_blank" : "_self"}>{children}</StyledLinkInner>
-  </NextLink>
+    {children}
+  </StyledNextLink>
 );
