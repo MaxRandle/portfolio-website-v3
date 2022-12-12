@@ -1,4 +1,4 @@
-import { SiAmazonaws, SiDocker, SiGraphql, SiMongodb, SiNodedotjs, SiReact, SiSvelte, SiTypescript } from "react-icons/si";
+import { SiAmazonaws, SiDocker, SiGraphql, SiMongodb, SiNodedotjs, SiReact, SiSass, SiSvelte, SiTailwindcss, SiTypescript } from "react-icons/si";
 
 const homePageContent = {
   hero: {
@@ -29,14 +29,36 @@ const homePageContent = {
         iconColor: "#7ccdea",
       },
       {
+        name: "Tailwind CSS",
+        description:
+          "My default choice for utility classes. I tend not to use Tailwind to build components, rather to quickly build pages and handle layout.",
+        IconComponent: SiTailwindcss,
+        iconColor: "#38BDF8",
+      },
+      {
+        name: "Sass",
+        description:
+          "Sass modules gaining popularity again after a number of big players have openly denounced CSS-in-JS citing performance issues. With Sass I can use PostCSS plugins that enable really cool next-gen css features.",
+        IconComponent: SiSass,
+        iconColor: "#CF649A",
+      },
+      {
         name: "GraphQL",
         description: "Front end devs love it, back end devs hate it. The only thing that matters is that all must surrender to the revolution.",
         IconComponent: SiGraphql,
         iconColor: "#d446a7",
       },
       {
+        name: "Svelte",
+        description:
+          "2022 brought trend of UI frameworks becoming enticing enough to lure React developers out of hiding to dip their toes into something new. For me this was Svelte and I have really positive things to say about it",
+        IconComponent: SiSvelte,
+        iconColor: "#df4a25",
+      },
+      {
         name: "Node",
-        description: "Perfect stack for quickly building small web servers with very low set up time and a great community and ecosystem.",
+        description:
+          "If I'm doing anything server-side it's going to be Node. I Love the low setup time and I'm patiently awaiting Deno and Bun to develop a big enough community and ecosystem to adopt as well.",
         IconComponent: SiNodedotjs,
         iconColor: "#98c635",
       },
@@ -46,13 +68,6 @@ const homePageContent = {
           "Developers dream. Away with the 12 project setup steps and dev/test/build commands. Simply run the image and it will just work! Please don't try to use docker on windows.",
         IconComponent: SiDocker,
         iconColor: "#4a94e6",
-      },
-      {
-        name: "Svelte",
-        description:
-          "Svelte is simple, sophisticated, and elegant. It's still a baby, but when it grows up I predict it will become the future of web development.",
-        IconComponent: SiSvelte,
-        iconColor: "#df4a25",
       },
       {
         name: "MongoDB",
